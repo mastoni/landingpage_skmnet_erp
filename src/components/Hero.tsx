@@ -149,7 +149,7 @@ export default function Hero() {
 
           {/* kanan: ekosistem jaringan */}
           <div className="lg:col-span-6 xl:col-span-6">
-            <div className="relative mx-auto aspect-[10/9] w-full max-w-[560px]" aria-hidden="false">
+            <div className="relative mx-auto aspect-[10/9] w-full max-w-[560px]">
               {/* radar rings */}
               <div className="absolute left-1/2 top-1/2 h-[74%] w-[74%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-ink/12 orbit-slow" aria-hidden />
               <div className="absolute left-1/2 top-1/2 h-[52%] w-[52%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-ink/10" aria-hidden />

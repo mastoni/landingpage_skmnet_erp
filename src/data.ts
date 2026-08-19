@@ -3,7 +3,8 @@
 /* ============ Konfigurasi terpusat: URL & kontak ============
    Semua URL keluar dikelola di satu tempat. Saat URL produksi
    resmi diterbitkan, cukup ubah nilai di blok ini — seluruh
-   komponen akan mengikuti. Jangan menaruh URL staging/internal. */
+   komponen akan mengikuti. Hanya URL produksi publik yang boleh
+   dicantumkan di sini — jangan menaruh alamat sistem tertutup. */
 export const SITE = "https://www.skmnetwork.com";
 export const ERP_URL = SITE; // produksi SKMNet ERP (sementara → domain utama)
 export const PORTAL_URL = `${SITE}/portal`; // Portal Pelanggan (verifikasi path)

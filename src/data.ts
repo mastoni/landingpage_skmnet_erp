@@ -1,6 +1,21 @@
 /* ================= Konten statis SKMNet ================= */
 
+/* ============ Konfigurasi terpusat: URL & kontak ============
+   Semua URL keluar dikelola di satu tempat. Saat URL produksi
+   resmi diterbitkan, cukup ubah nilai di blok ini — seluruh
+   komponen akan mengikuti. Jangan menaruh URL staging/internal. */
 export const SITE = "https://www.skmnetwork.com";
+export const ERP_URL = SITE; // produksi SKMNet ERP (sementara → domain utama)
+export const PORTAL_URL = `${SITE}/portal`; // Portal Pelanggan (verifikasi path)
+export const CONTACT_URL = `${SITE}/kontak`; // halaman kontak resmi (verifikasi path)
+export const INTERNET_URL = SITE; // halaman layanan internet (verifikasi path)
+
+/* Kontak resmi — diisi HANYA dengan data terverifikasi SKMNet.
+   Jangan mengarang nomor telepon, email, alamat, atau akun sosial. */
+export const CONTACTS: { label: string; value: string; href: string }[] = [
+  { label: "Situs resmi", value: "www.skmnetwork.com", href: SITE },
+  { label: "Kontak & dukungan", value: "halaman kontak resmi", href: CONTACT_URL },
+];
 
 export const navLinks = [
   { href: "#beranda", label: "Beranda" },

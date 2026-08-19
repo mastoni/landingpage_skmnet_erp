@@ -1,4 +1,4 @@
-import { SITE } from "../data";
+import { SITE, ERP_URL, PORTAL_URL } from "../data";
 import { LogoMark, Wordmark, IconGlobe, IconArrowUp } from "../icons";
 
 const cols: { title: string; links: { label: string; href: string; ext?: boolean }[] }[] = [
@@ -17,7 +17,7 @@ const cols: { title: string; links: { label: string; href: string; ext?: boolean
     links: [
       { label: "SKMNet ERP", href: "#erp" },
       { label: "Modul ERP", href: "#erp" },
-      { label: "Login ERP", href: SITE, ext: true },
+      { label: "Login ERP", href: ERP_URL, ext: true },
     ],
   },
   {
@@ -31,7 +31,7 @@ const cols: { title: string; links: { label: string; href: string; ext?: boolean
   {
     title: "Dukungan",
     links: [
-      { label: "Portal Pelanggan", href: `${SITE}/portal`, ext: true },
+      { label: "Portal Pelanggan", href: PORTAL_URL, ext: true },
       { label: "Bantuan", href: "#faq" },
       { label: "FAQ", href: "#faq" },
     ],

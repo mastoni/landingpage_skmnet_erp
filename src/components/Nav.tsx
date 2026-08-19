@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { LogoMark, Wordmark } from "../icons";
-import { navLinks, SITE } from "../data";
+import { navLinks, SITE, PORTAL_URL } from "../data";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -57,7 +57,7 @@ export default function Nav() {
               Login Admin
             </a>
             <a
-              href={`${SITE}/portal`}
+              href={PORTAL_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden items-center gap-2 rounded-lg border-2 border-ink/15 px-3.5 py-2 text-sm font-bold text-ink transition hover:border-ink/40 sm:inline-flex"
@@ -110,7 +110,7 @@ export default function Nav() {
               ))}
               <div className="mt-2 flex flex-col gap-2">
                 <a
-                  href={`${SITE}/portal`}
+                  href={PORTAL_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setOpen(false)}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { LogoMark, Wordmark } from "../icons";
-import { navLinks, SITE, PORTAL_URL } from "../data";
+import { navLinks, ERP_URL, PORTAL_URL } from "../data";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -49,7 +49,7 @@ export default function Nav() {
 
           <div className="flex items-center gap-3">
             <a
-              href={SITE}
+              href={ERP_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden font-mono text-[10px] font-bold uppercase tracking-widest text-ink/45 transition hover:text-ink xl:block"

@@ -242,6 +242,13 @@ body {
 .acc-body.acc-open { grid-template-rows: 1fr; }
 .acc-body > div { overflow: hidden; }
 
+/* ticker status di hero hub */
+@keyframes tick-in {
+  0% { opacity: 0; transform: translateY(7px); }
+  100% { opacity: 1; transform: none; }
+}
+.tick-in { animation: tick-in 0.45s ease both; }
+
 /* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -249,7 +256,7 @@ body {
   .mask-line > span { transform: none; animation: none; }
   .stroke-draw path { stroke-dashoffset: 0; animation: none; }
   .marquee-track, .floaty, .orbit-slow, .wifi-ripple,
-  .rec-blink, .scanline, .led { animation: none !important; }
+  .rec-blink, .scanline, .led, .tick-in { animation: none !important; }
   .flow-line, .flow-line-slow { animation: none; stroke-dasharray: none; }
   .ping-dot::after { animation: none; opacity: 0; }
   .bar-grow { transform: scaleY(1); transition: none; }

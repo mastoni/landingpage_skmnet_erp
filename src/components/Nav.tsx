@@ -5,12 +5,22 @@ import { navLinks, SITE } from "../data";
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [prog, setProg] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 12);
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      setProg(max > 0 ? Math.min(1, h.scrollTop / max) : 0);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   return (
@@ -114,6 +124,11 @@ export default function Nav() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* progress baca halaman */}
+        <div className="h-[3px] w-full bg-ink/5" aria-hidden>
+          <div className="h-full bg-marigold transition-[width] duration-150 ease-out" style={{ width: `${prog * 100}%` }} />
         </div>
       </nav>
     </header>

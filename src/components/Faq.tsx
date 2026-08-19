@@ -1,43 +1,45 @@
 import { useState } from "react";
-import { faqs } from "../data";
-import { IconWa, IconMail, IconClock } from "../icons";
+import { faqs, SITE } from "../data";
+import { IconGlobe, IconHeadset } from "../icons";
 import { Reveal, SectionHead } from "./Ui";
 
 export default function Faq() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section id="faq" className="border-t-2 border-ink/10 bg-card/60 py-20 sm:py-28" aria-labelledby="faq-title">
+    <section id="faq" className="border-b-2 border-ink/10 bg-card/60 py-20 sm:py-28" aria-labelledby="faq-title">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHead
               eyebrow="Tanya jawab"
-              title={<span id="faq-title">Masih ragu? <span className="text-sky-2">Wajar kok.</span></span>}
-              copy="Jawaban untuk pertanyaan yang paling sering ditanyakan juragan sebelum pindah ke BizERP."
+              title={<span id="faq-title">Hal yang Sering <span className="text-sky-2">Ditanyakan</span></span>}
+              copy="Jawaban singkat untuk pertanyaan yang paling sering masuk seputar layanan dan produk SKMNet."
             />
             <Reveal delay={220}>
               <div className="mt-8 rounded-2xl border-2 border-ink/10 bg-paper p-6">
-                <p className="font-display text-lg font-bold text-ink">Butuh jawaban lebih cepat?</p>
-                <p className="mt-1.5 text-sm text-ink/60">Tim kami (manusia, bukan bot) siap bantu di jam kerja.</p>
+                <p className="font-display text-lg font-bold text-ink">Butuh jawaban spesifik?</p>
+                <p className="mt-1.5 text-sm text-ink/60">
+                  Ceritakan kebutuhan Anda lewat halaman kontak resmi — tim kami bantu arahkan ke solusi yang tepat.
+                </p>
                 <div className="mt-5 flex flex-col gap-3">
                   <a
-                    href="https://wa.me/6281234567890?text=Halo%20BizERP%2C%20saya%20mau%20tanya%20promo%20UMKM"
+                    href={`${SITE}/kontak`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-arrow flex items-center justify-between rounded-xl bg-leaf px-5 py-3.5 text-sm font-extrabold text-paper transition hover:-translate-y-0.5"
+                    className="btn-arrow flex items-center gap-2.5 rounded-xl bg-ink px-5 py-3.5 text-sm font-extrabold text-paper transition hover:-translate-y-0.5 hover:bg-ink-2"
                   >
-                    <span className="flex items-center gap-2.5">
-                      <IconWa size={18} /> Chat WhatsApp
-                    </span>
-                    <span className="font-mono text-xs font-semibold text-paper/70">0812-3456-7890</span>
+                    <IconGlobe size={17} className="text-marigold" /> Halaman Kontak Resmi
                   </a>
-                  <a href="mailto:halo@biz-erp.id" className="flex items-center gap-2.5 rounded-xl border-2 border-ink/15 px-5 py-3.5 text-sm font-bold text-ink transition hover:border-ink/40">
-                    <IconMail size={18} className="text-ink/50" /> halo@biz-erp.id
+                  <a
+                    href={`${SITE}/portal`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2.5 rounded-xl border-2 border-ink/15 px-5 py-3.5 text-sm font-bold text-ink transition hover:border-ink/40"
+                  >
+                    <IconHeadset size={17} className="text-ink/50" /> Portal Pelanggan
                   </a>
-                  <p className="flex items-center gap-2.5 px-1 font-mono text-[11px] font-semibold text-ink/45">
-                    <IconClock size={14} /> Senin–Sabtu · 08.00–20.00 WIB
-                  </p>
+                  <p className="px-1 font-mono text-[11px] font-semibold text-ink/45">www.skmnetwork.com</p>
                 </div>
               </div>
             </Reveal>

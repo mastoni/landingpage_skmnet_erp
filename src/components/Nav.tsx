@@ -1,14 +1,6 @@
 import { useEffect, useState } from "react";
 import { LogoMark, Wordmark } from "../icons";
-
-const links = [
-  { href: "#fitur", label: "Fitur" },
-  { href: "#cara-kerja", label: "Cara Kerja" },
-  { href: "#promo", label: "Promo" },
-  { href: "#harga", label: "Harga" },
-  { href: "#testimoni", label: "Testimoni" },
-  { href: "#faq", label: "FAQ" },
-];
+import { navLinks, SITE } from "../data";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,40 +15,22 @@ export default function Nav() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      {/* Bar promo */}
-      <div className="bg-ink text-paper">
-        <div className="mx-auto flex max-w-7xl items-center justify-center gap-2.5 px-4 py-2 text-center font-mono text-[11px] font-semibold tracking-wide sm:text-xs">
-          <span className="relative inline-flex h-2 w-2 shrink-0 rounded-full bg-marigold text-marigold ping-dot" />
-          <span className="truncate">
-            PROMO UMKM NAIK KELAS — diskon <span className="text-marigold">40%</span> tahun pertama
-          </span>
-          <a
-            href="#promo"
-            className="hidden shrink-0 items-center gap-1 rounded-full border border-marigold/50 bg-marigold/10 px-2.5 py-0.5 text-marigold transition hover:bg-marigold hover:text-ink sm:inline-flex"
-          >
-            Kode: UMKMNAIK40
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-              <path d="M4 12h15M13.5 5.5 20 12l-6.5 6.5" />
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      {/* Navigasi utama */}
       <nav
         className={`border-b transition-all duration-300 ${
-          scrolled ? "border-ink/10 bg-paper/90 shadow-[0_8px_30px_-18px_rgba(11,31,51,0.4)] backdrop-blur-md" : "border-transparent bg-transparent"
+          scrolled
+            ? "border-ink/10 bg-paper/90 shadow-[0_8px_30px_-18px_rgba(11,31,51,0.4)] backdrop-blur-md"
+            : "border-transparent bg-paper/60 backdrop-blur-sm"
         }`}
         aria-label="Navigasi utama"
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
-          <a href="#beranda" className="flex items-center gap-2.5" aria-label="BizERP beranda">
-            <LogoMark size={38} />
+          <a href="#beranda" className="flex items-center gap-2.5" aria-label="SKMNet beranda">
+            <LogoMark size={40} />
             <Wordmark />
           </a>
 
           <div className="hidden items-center gap-7 lg:flex">
-            {links.map((l) => (
+            {navLinks.map((l) => (
               <a key={l.href} href={l.href} className="nav-link text-sm font-semibold text-ink/80 transition hover:text-ink">
                 {l.label}
               </a>
@@ -65,11 +39,31 @@ export default function Nav() {
 
           <div className="flex items-center gap-3">
             <a
-              href="#daftar"
-              className="btn-arrow hidden items-center gap-2 rounded-lg bg-ink px-4.5 py-2.5 text-sm font-bold text-paper transition hover:bg-ink-2 sm:inline-flex"
+              href={SITE}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden font-mono text-[10px] font-bold uppercase tracking-widest text-ink/45 transition hover:text-ink xl:block"
             >
-              Coba Gratis
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              Login Admin
+            </a>
+            <a
+              href={`${SITE}/portal`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden items-center gap-2 rounded-lg border-2 border-ink/15 px-3.5 py-2 text-sm font-bold text-ink transition hover:border-ink/40 sm:inline-flex"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <circle cx="12" cy="8" r="3.4" />
+                <path d="M5 20c1.3-3.4 3.9-5 7-5s5.7 1.6 7 5" />
+              </svg>
+              Portal Pelanggan
+            </a>
+            <a
+              href="#kontak"
+              className="btn-arrow hidden items-center gap-2 rounded-lg bg-ink px-4 py-2.5 text-sm font-bold text-paper transition hover:bg-ink-2 sm:inline-flex"
+            >
+              Hubungi Kami
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                 <path d="M4 12h15M13.5 5.5 20 12l-6.5 6.5" />
               </svg>
             </a>
@@ -94,7 +88,7 @@ export default function Nav() {
         >
           <div className="overflow-hidden">
             <div className="flex flex-col gap-1 px-4 py-3">
-              {links.map((l) => (
+              {navLinks.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
@@ -104,13 +98,20 @@ export default function Nav() {
                   {l.label}
                 </a>
               ))}
-              <a
-                href="#daftar"
-                onClick={() => setOpen(false)}
-                className="mt-2 rounded-lg bg-ink px-3 py-3 text-center text-sm font-bold text-paper"
-              >
-                Coba Gratis 14 Hari
-              </a>
+              <div className="mt-2 flex flex-col gap-2">
+                <a
+                  href={`${SITE}/portal`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="rounded-lg border-2 border-ink/15 px-3 py-2.5 text-center text-sm font-bold text-ink"
+                >
+                  Portal Pelanggan
+                </a>
+                <a href="#kontak" onClick={() => setOpen(false)} className="rounded-lg bg-ink px-3 py-3 text-center text-sm font-bold text-paper">
+                  Hubungi Kami
+                </a>
+              </div>
             </div>
           </div>
         </div>

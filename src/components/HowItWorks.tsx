@@ -1,69 +1,49 @@
 import { steps } from "../data";
-import { IconPetir, IconImport, IconGrafik, IconArrow } from "../icons";
+import { IconTarget, IconLayers, IconHeadset, IconArrowRight } from "../icons";
 import { Reveal, SectionHead } from "./Ui";
 
-const iconMap: Record<string, React.ReactNode> = {
-  petir: <IconPetir size={22} />,
-  import: <IconImport size={22} />,
-  grafik: <IconGrafik size={22} />,
+const stepIcons: Record<string, React.ReactNode> = {
+  target: <IconTarget size={22} />,
+  layers: <IconLayers size={22} />,
+  headset: <IconHeadset size={22} />,
 };
 
 export default function HowItWorks() {
   return (
-    <section id="cara-kerja" className="bg-ledger-dark relative overflow-hidden bg-ink py-20 text-paper sm:py-28" aria-labelledby="cara-title">
-      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-[120%] -translate-x-1/2 bg-gradient-to-r from-transparent via-marigold/60 to-transparent" aria-hidden />
+    <section id="cara-kerja" className="relative border-b-2 border-ink/10 py-20 sm:py-28" aria-labelledby="cara-kerja-title">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHead
-            dark
-            eyebrow="Cara kerja"
-            title={<span id="cara-title">Dari daftar sampai laporan rapi, cuma <span className="text-marigold">3 langkah</span></span>}
-            copy="Tidak perlu orang IT, tidak perlu training berhari-hari. Rata-rata pengguna melakukan transaksi pertamanya dalam 15 menit."
-          />
-          <Reveal delay={200}>
-            <p className="hidden max-w-[220px] rounded-xl border-2 border-dashed border-paper/20 p-4 font-mono text-[11px] leading-relaxed text-paper/60 lg:block">
-              ⌀ waktu setup pengguna baru:<br />
-              <span className="text-2xl font-bold text-marigold">14 menit 32 detik</span>
-            </p>
-          </Reveal>
-        </div>
+        <SectionHead
+          eyebrow="Cara kerja"
+          title={<span id="cara-kerja-title">Mulai dari Kebutuhan, <span className="text-leaf">Kami Bangun Solusinya.</span></span>}
+          copy="Tidak ada solusi instan yang dipaksakan. Setiap proyek berjalan lewat tiga tahap yang jelas dan terukur."
+        />
 
-        <div className="relative mt-14 grid gap-10 lg:grid-cols-3 lg:gap-8">
+        <div className="relative mt-12">
           {/* garis penghubung */}
-          <div className="absolute left-[16%] right-[16%] top-9 hidden border-t-2 border-dashed border-paper/20 lg:block" aria-hidden />
-          {steps.map((s, i) => (
-            <Reveal key={s.no} delay={i * 130}>
-              <div className="relative">
-                <div className="flex items-center gap-4">
-                  <span className="relative z-10 flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-2xl border-2 border-marigold/50 bg-ink-2 text-marigold shadow-[0_0_0_8px_rgba(11,31,51,1)]">
-                    {iconMap[s.icon]}
-                    <span className="font-display absolute -right-2.5 -top-2.5 flex h-7 w-7 items-center justify-center rounded-full bg-marigold text-xs font-extrabold text-ink">
-                      {i + 1}
-                    </span>
-                  </span>
-                  <span className="font-display text-5xl font-extrabold text-paper/15" aria-hidden>
-                    {s.no}
-                  </span>
-                </div>
-                <h3 className="font-display mt-5 text-xl font-bold text-paper sm:text-2xl">{s.title}</h3>
-                <p className="mt-2.5 max-w-sm text-sm leading-relaxed text-paper/65">{s.desc}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+          <div className="absolute left-8 top-8 hidden h-0.5 w-[calc(100%-6rem)] border-t-2 border-dashed border-ink/20 lg:block" aria-hidden />
 
-        <Reveal delay={200}>
-          <div className="mt-14 flex flex-col items-center gap-4 border-t-2 border-dashed border-paper/15 pt-10 text-center">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-paper/50">Gratis migrasi data · gratis onboarding · batalkan kapan saja</p>
-            <a
-              href="#daftar"
-              className="btn-arrow inline-flex items-center gap-2.5 rounded-xl bg-marigold px-7 py-3.5 text-base font-extrabold text-ink transition hover:-translate-y-0.5 hover:bg-marigold-2"
-            >
-              Mulai Sekarang — Gratis
-              <IconArrow size={17} />
-            </a>
+          <div className="grid gap-8 md:grid-cols-3">
+            {steps.map((s, i) => (
+              <Reveal key={s.no} delay={i * 130}>
+                <article className="relative">
+                  <div className="flex items-center gap-4">
+                    <span className="font-display relative z-10 flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-ink bg-paper text-ink shadow-[4px_4px_0_0_var(--color-marigold)]">
+                      {stepIcons[s.icon]}
+                    </span>
+                    <span className="font-display text-5xl font-extrabold text-ink/10">{s.no}</span>
+                  </div>
+                  <h3 className="font-display mt-5 text-xl font-bold text-ink sm:text-2xl">{s.title}</h3>
+                  <p className="mt-2.5 max-w-xs text-[15px] leading-relaxed text-ink/60">{s.desc}</p>
+                  {i < 2 && (
+                    <span className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest text-ink/35">
+                      lanjut ke tahap {i + 2} <IconArrowRight size={13} />
+                    </span>
+                  )}
+                </article>
+              </Reveal>
+            ))}
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

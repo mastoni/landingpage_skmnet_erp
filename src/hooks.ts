@@ -40,51 +40,9 @@ export function useInView<T extends HTMLElement = HTMLDivElement>(threshold = 0.
   return { ref, inView };
 }
 
-/* Angka naik (count-up) dengan easing */
-export function useCountUp(target: number, start: boolean, duration = 1700, decimals = 0): string {
-  const reduced = usePrefersReducedMotion();
-  const [val, setVal] = useState(0);
-  useEffect(() => {
-    if (!start) return;
-    if (reduced) {
-      setVal(target);
-      return;
-    }
-    let raf = 0;
-    const t0 = performance.now();
-    const tick = (t: number) => {
-      const p = Math.min(1, (t - t0) / duration);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setVal(target * eased);
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [start, target, duration, reduced]);
-  return val.toLocaleString("id-ID", { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
-}
-
-/* Hitung mundur menuju tanggal tertentu */
-export function useCountdown(target: Date) {
-  const calc = () => Math.max(0, target.getTime() - Date.now());
-  const [ms, setMs] = useState(calc);
-  useEffect(() => {
-    const id = window.setInterval(() => setMs(calc()), 1000);
-    return () => window.clearInterval(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [target.getTime()]);
-  const total = Math.floor(ms / 1000);
-  return {
-    days: Math.floor(total / 86400),
-    hours: Math.floor((total % 86400) / 3600),
-    minutes: Math.floor((total % 3600) / 60),
-    seconds: total % 60,
-  };
-}
-
-/* Efek scramble-decode untuk teks pendek */
-const GLYPHS = "AKUSMNRT0147#%$";
-export function useScramble(text: string, start: boolean, speed = 28): string {
+/* Efek scramble-decode untuk teks pendek (eyebrow) */
+const GLYPHS = "AKUSMNRT0147#%/";
+export function useScramble(text: string, start: boolean, speed = 26): string {
   const reduced = usePrefersReducedMotion();
   const [out, setOut] = useState(reduced ? text : "");
   useEffect(() => {
@@ -100,7 +58,7 @@ export function useScramble(text: string, start: boolean, speed = 28): string {
       let s = "";
       for (let i = 0; i < text.length; i++) {
         const ch = text[i];
-        if (ch === " " || ch === "·") s += ch;
+        if (ch === " " || ch === "·" || ch === "•") s += ch;
         else if (i < settled) s += ch;
         else s += GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
       }
@@ -112,28 +70,12 @@ export function useScramble(text: string, start: boolean, speed = 28): string {
   return out;
 }
 
-/* Salin ke clipboard dengan fallback */
-export async function copyText(text: string): Promise<boolean> {
-  try {
-    await navigator.clipboard.writeText(text);
-    return true;
-  } catch {
-    try {
-      const ta = document.createElement("textarea");
-      ta.value = text;
-      ta.style.position = "fixed";
-      ta.style.opacity = "0";
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand("copy");
-      document.body.removeChild(ta);
-      return true;
-    } catch {
-      return false;
-    }
-  }
+/* Jam real-time (untuk panel monitoring) */
+export function useClock(): string {
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const id = window.setInterval(() => setNow(new Date()), 1000);
+    return () => window.clearInterval(id);
+  }, []);
+  return now.toLocaleTimeString("id-ID", { hour12: false });
 }
-
-/* Format rupiah singkat: 99000 -> "99rb" */
-export const rupiahK = (n: number) => `Rp${Math.round(n / 1000)}rb`;
-export const rupiah = (n: number) => `Rp${n.toLocaleString("id-ID")}`;

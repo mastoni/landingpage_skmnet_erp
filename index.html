@@ -1,97 +1,93 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>coder-app-name</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <style>
-      /* 内联样式确保主题色立即生效，避免闪烁 */
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-      }
-      html.light,
-      html.light body {
-        background-color: #ffffff !important;
-        color: #000000;
-      }
-      html.dark,
-      html.dark body {
-        background-color: #1a1a1a !important;
-        color: #ffffff;
-      }
-    </style>
-    <script>
-      // 在 React 加载前立即设置主题，避免闪烁
-      (function () {
-        const isInIframe = window.self !== window.top;
+    <title>BizERP — Aplikasi ERP, Kasir & Pembukuan untuk UMKM Indonesia</title>
+    <meta name="description" content="BizERP adalah aplikasi ERP all-in-one untuk UMKM Indonesia: kasir POS, manajemen stok, laporan keuangan otomatis, HR & absensi, hingga multi-cabang. Gratis 14 hari, diskon 40% promo UMKM Naik Kelas." />
+    <meta name="keywords" content="aplikasi ERP UMKM, software kasir UMKM, aplikasi pembukuan UMKM, manajemen stok, laporan keuangan UMKM, aplikasi toko, POS kasir, BizERP" />
+    <meta name="author" content="BizERP" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://biz-erp.id/" />
+    <meta name="theme-color" content="#0B1F33" />
 
-        function applyThemeToDOM(theme) {
-          document.documentElement.classList.remove("light", "dark");
-          document.documentElement.classList.add(theme);
-          document.documentElement.setAttribute("data-theme", theme);
-        }
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BizERP" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:title" content="BizERP — Aplikasi ERP, Kasir & Pembukuan untuk UMKM Indonesia" />
+    <meta property="og:description" content="Satu aplikasi untuk kasir, stok, keuangan, dan tim. Dibuat khusus untuk UMKM Indonesia. Coba gratis 14 hari + diskon 40% tahun pertama." />
+    <meta property="og:url" content="https://biz-erp.id/" />
+    <meta property="og:image" content="https://image.qwenlm.ai/generated-images/00b49471-53ee-4e32-b0ec-f43fc53a8585/_result.png" />
 
-        if (isInIframe) {
-          // 监听父窗口主动推送的主题消息
-          window.addEventListener("message", function (event) {
-            if (event.data && typeof event.data.theme === "string") {
-              const theme = event.data.theme;
-              if (theme === "light" || theme === "dark") {
-                applyThemeToDOM(theme);
-              }
-            }
-          });
-        } else {
-          // 非 iframe 环境，使用默认 light 主题
-          applyThemeToDOM("light");
-        }
-      })();
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BizERP — ERP All-in-One untuk UMKM Indonesia" />
+    <meta name="twitter:description" content="Kasir, stok, laporan keuangan, HR & multi-cabang dalam satu aplikasi. Gratis 14 hari." />
+    <meta name="twitter:image" content="https://image.qwenlm.ai/generated-images/00b49471-53ee-4e32-b0ec-f43fc53a8585/_result.png" />
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B1F33'/%3E%3Cpath d='M9 8h14v13l-2.4-2-2.3 2-2.3-2-2.3 2-2.3-2L9 21V8z' fill='%23FFB224'/%3E%3Crect x='12' y='12' width='8' height='1.6' rx='.8' fill='%230B1F33'/%3E%3Crect x='12' y='15.5' width='5.5' height='1.6' rx='.8' fill='%230B1F33'/%3E%3C/svg%3E" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,400..600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Structured data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "BizERP",
+      "url": "https://biz-erp.id",
+      "logo": "https://biz-erp.id/img/umkm-hero.png",
+      "description": "Aplikasi ERP all-in-one untuk UMKM Indonesia: kasir, stok, keuangan, HR, dan multi-cabang.",
+      "sameAs": ["https://instagram.com/bizerp.id", "https://tiktok.com/@bizerp.id"]
+    }
     </script>
-      <script>
-      (function () {
-        if (window.self === window.top) return;
-        var reported = {};
-        window.addEventListener("error", function (event) {
-          // 资源加载失败的 error 事件没有 message，此处仅上报 JS 运行时错误
-          if (!event || !event.message) return;
-          var key =
-            event.message + "|" + (event.filename || "") + "|" + (event.lineno || 0);
-          if (reported[key]) return; // 相同错误只上报一次，避免渲染循环刷屏
-          reported[key] = true;
-          try {
-            window.parent.postMessage(
-              {
-                type: "sandbox-runtime-error",
-                payload: {
-                  message: String(event.message).slice(0, 500),
-                  filename: event.filename || "",
-                  lineno: event.lineno || 0,
-                  colno: event.colno || 0,
-                  stack:
-                    event.error && event.error.stack
-                      ? String(event.error.stack).slice(0, 2000)
-                      : ""
-                }
-              },
-              "*"
-            );
-          } catch (e) {
-            /* 上报失败不影响页面运行 */
-          }
-        });
-      })();
+
+    <!-- Structured data: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BizERP",
+      "operatingSystem": "Web, Android, iOS",
+      "applicationCategory": "BusinessApplication",
+      "inLanguage": "id",
+      "description": "ERP all-in-one untuk UMKM: kasir POS, manajemen inventori, akuntansi & laporan keuangan, HR & absensi, CRM, multi-cabang.",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "IDR",
+        "lowPrice": "0",
+        "highPrice": "249000",
+        "offerCount": "3"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "3120"
+      }
+    }
+    </script>
+
+    <!-- Structured data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Apakah BizERP cocok untuk usaha kecil yang baru mulai?", "acceptedAnswer": { "@type": "Answer", "text": "Sangat cocok. Paket Warung gratis selamanya untuk 1 outlet dan 300 produk, tanpa kartu kredit. Anda bisa upgrade kapan pun saat bisnis berkembang." } },
+        { "@type": "Question", "name": "Berapa biaya berlangganan BizERP?", "acceptedAnswer": { "@type": "Answer", "text": "Mulai dari gratis. Paket Juragan Rp99.000/bulan (atau Rp59.000/bulan dengan tagihan tahunan + promo UMKMNAIK40) dan Paket Serikat Rp249.000/bulan untuk multi-cabang." } },
+        { "@type": "Question", "name": "Apakah data bisnis saya aman?", "acceptedAnswer": { "@type": "Answer", "text": "Aman. Data terenkripsi saat transit maupun tersimpan di server Indonesia dengan backup otomatis harian. Kami patuh UU PDP No. 27/2022." } },
+        { "@type": "Question", "name": "Bisakah dipakai offline saat internet mati?", "acceptedAnswer": { "@type": "Answer", "text": "Bisa. Mode offline kasir tetap mencatat transaksi dan stok, lalu otomatis sinkron saat koneksi kembali." } },
+        { "@type": "Question", "name": "Apakah bisa migrasi dari Excel atau aplikasi lain?", "acceptedAnswer": { "@type": "Answer", "text": "Bisa. Tersedia import produk & stok dari Excel/CSV dalam sekali klik, dan tim onboarding siap membantu migrasi gratis untuk paket tahunan." } },
+        { "@type": "Question", "name": "Bagaimana cara klaim promo diskon 40%?", "acceptedAnswer": { "@type": "Answer", "text": "Daftar gratis, masukkan kode UMKMNAIK40 saat checkout paket tahunan, selama kuota 500 UMKM pertama masih tersedia." } }
+      ]
+    }
     </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

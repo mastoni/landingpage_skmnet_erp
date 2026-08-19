@@ -5,11 +5,11 @@
    resmi diterbitkan, cukup ubah nilai di blok ini — seluruh
    komponen akan mengikuti. Hanya URL produksi publik yang boleh
    dicantumkan di sini — jangan menaruh alamat sistem tertutup. */
-export const SITE = "https://www.skmnetwork.com"; // VERIFIED — domain produksi
-export const ERP_URL = SITE; // NEEDS-CONFIGURATION: URL produksi SKMNet ERP (sementara → domain utama)
-export const PORTAL_URL = `${SITE}/portal`; // NEEDS-CONFIGURATION: path Portal Pelanggan (verifikasi)
-export const CONTACT_URL = `${SITE}/kontak`; // NEEDS-CONFIGURATION: path halaman kontak (verifikasi)
-export const INTERNET_URL = SITE; // NEEDS-CONFIGURATION: URL halaman layanan internet (verifikasi)
+export const SITE = "https://www.skmnetwork.com"; // VERIFIED — domain produksi landing publik
+export const ERP_URL = "https://erp.skmnetwork.com"; // VERIFIED — SKMNet ERP web produksi
+export const PORTAL_URL = `${SITE}/portal`; // NEEDS-CONFIGURATION: route belum ada di proyek ini
+export const CONTACT_URL = `${SITE}/kontak`; // NEEDS-CONFIGURATION: route belum ada di proyek ini
+export const INTERNET_URL = SITE; // NEEDS-CONFIGURATION: halaman layanan internet belum ada
 
 /* Ilustrasi produk ERP (konten halaman, bukan aset brand).
    NEEDS-CONFIGURATION: aset resmi belum tersedia di repo (masih host

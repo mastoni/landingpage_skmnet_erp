@@ -1,4 +1,4 @@
-import { SITE } from "../data";
+import { INTERNET_URL } from "../data";
 import { IconWifi, IconHome, IconStore, IconOffice, IconArrowRight, IconCheck } from "../icons";
 import { Reveal, Eyebrow } from "./Ui";
 
@@ -39,7 +39,7 @@ export default function Internet() {
             </Reveal>
             <Reveal delay={320}>
               <a
-                href={SITE}
+                href={INTERNET_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-arrow mt-8 inline-flex items-center gap-2.5 rounded-xl bg-sky-2 px-6 py-3.5 text-[15px] font-extrabold text-paper transition hover:-translate-y-0.5 hover:bg-[#0f5a74]"

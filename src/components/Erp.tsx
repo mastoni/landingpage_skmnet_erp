@@ -1,4 +1,4 @@
-import { erpModules, SITE } from "../data";
+import { erpModules, ERP_URL, ERP_IMAGE } from "../data";
 import { useInView } from "../hooks";
 import {
   IconErp,
@@ -20,7 +20,7 @@ const modIcons: Record<string, React.ReactNode> = {
   monitor: <IconMonitor size={19} />,
 };
 
-const IMG = "https://image.qwenlm.ai/generated-images/00b49471-53ee-4e32-b0ec-f43fc53a8585/_result.png";
+
 
 export default function Erp() {
   const { ref, inView } = useInView<HTMLDivElement>(0.2);
@@ -49,7 +49,7 @@ export default function Erp() {
               <Reveal delay={250}>
                 <div className="relative mt-8 max-w-sm">
                   <img
-                    src={IMG}
+                    src={ERP_IMAGE}
                     alt="Pengelola usaha menggunakan sistem digital SKMNet melalui tablet"
                     width={1200}
                     height={1000}
@@ -65,7 +65,7 @@ export default function Erp() {
               <Reveal delay={330}>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <a
-                    href={SITE}
+                    href={ERP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-arrow inline-flex items-center gap-2.5 rounded-xl bg-ink px-6 py-3.5 text-[15px] font-extrabold text-paper transition hover:-translate-y-0.5 hover:bg-ink-2"
@@ -74,7 +74,7 @@ export default function Erp() {
                     <IconArrowRight size={16} />
                   </a>
                   <a
-                    href={SITE}
+                    href={ERP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2.5 rounded-xl border-2 border-ink/20 px-6 py-[12px] text-[15px] font-bold text-ink transition hover:border-ink/50 hover:bg-card"

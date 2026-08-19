@@ -1,5 +1,14 @@
+import { useEffect, useState } from "react";
 import { useScramble } from "../hooks";
 import { capabilities, heroNodes } from "../data";
+
+const STATUS_MSGS = [
+  { label: "semua node terhubung", dot: "bg-leaf text-leaf" },
+  { label: "cctv · online", dot: "bg-leaf text-leaf" },
+  { label: "erp · aktif", dot: "bg-marigold text-marigold" },
+  { label: "jaringan · stabil", dot: "bg-leaf text-leaf" },
+  { label: "backup · terjadwal", dot: "bg-sky-2 text-sky-2" },
+];
 import {
   LogoMark,
   IconWifi,
@@ -54,6 +63,14 @@ function HeadlineWord({ w, i, accent = false }: { w: string; i: number; accent?:
 
 export default function Hero() {
   const eyebrow = useScramble("TEKNOLOGI • JARINGAN • SOLUSI DIGITAL", true);
+  const [statusIdx, setStatusIdx] = useState(0);
+
+  useEffect(() => {
+    const id = window.setInterval(() => setStatusIdx((i) => (i + 1) % STATUS_MSGS.length), 2600);
+    return () => window.clearInterval(id);
+  }, []);
+
+  const status = STATUS_MSGS[statusIdx];
   const h1 = "Teknologi yang Menghubungkan Bisnis dan Kehidupan Digital Anda.".split(" ");
 
   return (
@@ -132,7 +149,7 @@ export default function Hero() {
 
           {/* kanan: ekosistem jaringan */}
           <div className="lg:col-span-6 xl:col-span-6">
-            <div className="relative mx-auto aspect-[10/9] w-full max-w-[560px]" aria-hidden="false">
+            <div className="relative mx-auto aspect-[10/9] w-full max-w-[560px]">
               {/* radar rings */}
               <div className="absolute left-1/2 top-1/2 h-[74%] w-[74%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-ink/12 orbit-slow" aria-hidden />
               <div className="absolute left-1/2 top-1/2 h-[52%] w-[52%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-ink/10" aria-hidden />
@@ -160,6 +177,17 @@ export default function Hero() {
                     style={{ animationDelay: `${i * 0.25}s` }}
                   />
                 ))}
+                {/* paket data yang mengalir antar node */}
+                {anchors.slice(0, 3).map(([x, y], i) => (
+                  <circle
+                    key={`pkt-${i}`}
+                    r="1.1"
+                    fill={i === 1 ? "var(--color-leaf)" : "var(--color-marigold)"}
+                    className="motion-reduce:hidden"
+                  >
+                    <animateMotion dur={`${2.6 + i * 0.8}s`} begin={`${i * 0.9}s`} repeatCount="indefinite" path={`M50 50 L${x} ${y}`} />
+                  </circle>
+                ))}
               </svg>
 
               {/* hub pusat */}
@@ -171,6 +199,15 @@ export default function Hero() {
                     SKM<span className="text-marigold-2">Net</span>
                   </p>
                   <p className="mt-1 font-mono text-[9px] font-bold uppercase tracking-[0.3em] text-ink/40">ekosistem</p>
+                  <span
+                    key={statusIdx}
+                    className="tick-in absolute -bottom-11 inline-flex items-center gap-2 whitespace-nowrap rounded-full border-2 border-ink/10 bg-paper/95 px-3.5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70 shadow-sm"
+                    role="status"
+                    aria-live="polite"
+                  >
+                    <span className={`relative h-2 w-2 rounded-full ${status.dot} ping-dot`} />
+                    {status.label}
+                  </span>
                 </div>
               </div>
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { faqs, SITE } from "../data";
+import { faqs, CONTACT_URL, PORTAL_URL } from "../data";
 import { IconGlobe, IconHeadset } from "../icons";
 import { Reveal, SectionHead } from "./Ui";
 
@@ -24,7 +24,7 @@ export default function Faq() {
                 </p>
                 <div className="mt-5 flex flex-col gap-3">
                   <a
-                    href={`${SITE}/kontak`}
+                    href={CONTACT_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-arrow flex items-center gap-2.5 rounded-xl bg-ink px-5 py-3.5 text-sm font-extrabold text-paper transition hover:-translate-y-0.5 hover:bg-ink-2"
@@ -32,7 +32,7 @@ export default function Faq() {
                     <IconGlobe size={17} className="text-marigold" /> Halaman Kontak Resmi
                   </a>
                   <a
-                    href={`${SITE}/portal`}
+                    href={PORTAL_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2.5 rounded-xl border-2 border-ink/15 px-5 py-3.5 text-sm font-bold text-ink transition hover:border-ink/40"

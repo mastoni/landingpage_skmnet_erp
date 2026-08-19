@@ -1,16 +1,26 @@
 import { useEffect, useState } from "react";
 import { LogoMark, Wordmark } from "../icons";
-import { navLinks, SITE } from "../data";
+import { navLinks, ERP_URL, PORTAL_URL } from "../data";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [prog, setProg] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 12);
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      setProg(max > 0 ? Math.min(1, h.scrollTop / max) : 0);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   return (
@@ -39,7 +49,7 @@ export default function Nav() {
 
           <div className="flex items-center gap-3">
             <a
-              href={SITE}
+              href={ERP_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden font-mono text-[10px] font-bold uppercase tracking-widest text-ink/45 transition hover:text-ink xl:block"
@@ -47,7 +57,7 @@ export default function Nav() {
               Login Admin
             </a>
             <a
-              href={`${SITE}/portal`}
+              href={PORTAL_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden items-center gap-2 rounded-lg border-2 border-ink/15 px-3.5 py-2 text-sm font-bold text-ink transition hover:border-ink/40 sm:inline-flex"
@@ -100,7 +110,7 @@ export default function Nav() {
               ))}
               <div className="mt-2 flex flex-col gap-2">
                 <a
-                  href={`${SITE}/portal`}
+                  href={PORTAL_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
@@ -114,6 +124,11 @@ export default function Nav() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* progress baca halaman */}
+        <div className="h-[3px] w-full bg-ink/5" aria-hidden>
+          <div className="h-full bg-marigold transition-[width] duration-150 ease-out" style={{ width: `${prog * 100}%` }} />
         </div>
       </nav>
     </header>

@@ -18,8 +18,11 @@ import Footer from "./components/Footer";
 export default function App() {
   return (
     <div className="min-h-screen bg-paper font-body text-ink">
+      <a href="#konten-utama" className="skip-link">
+        Langsung ke konten utama
+      </a>
       <Nav />
-      <main>
+      <main id="konten-utama">
         <Hero />
         <Marquee />
         <Problems />

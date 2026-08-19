@@ -1,4 +1,4 @@
-import { SITE } from "../data";
+import { CONTACT_URL } from "../data";
 import { IconArrowRight, IconErp } from "../icons";
 import { Reveal, Eyebrow } from "./Ui";
 
@@ -41,7 +41,7 @@ export default function Cta() {
         <Reveal delay={250}>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
-              href={SITE}
+              href={CONTACT_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-arrow inline-flex items-center gap-2.5 rounded-xl bg-marigold px-7 py-4 text-base font-extrabold text-ink transition hover:-translate-y-0.5 hover:bg-marigold-2"

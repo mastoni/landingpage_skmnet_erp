@@ -1,6 +1,29 @@
 /* ================= Konten statis SKMNet ================= */
 
-export const SITE = "https://www.skmnetwork.com";
+/* ============ Konfigurasi terpusat: URL & kontak ============
+   Semua URL keluar dikelola di satu tempat. Saat URL produksi
+   resmi diterbitkan, cukup ubah nilai di blok ini — seluruh
+   komponen akan mengikuti. Hanya URL produksi publik yang boleh
+   dicantumkan di sini — jangan menaruh alamat sistem tertutup. */
+export const SITE = "https://www.skmnetwork.com"; // VERIFIED — domain produksi landing publik
+export const ERP_URL = "https://erp.skmnetwork.com"; // VERIFIED — SKMNet ERP web produksi
+export const PORTAL_URL = `${SITE}/portal`; // NEEDS-CONFIGURATION: route belum ada di proyek ini
+export const CONTACT_URL = `${SITE}/kontak`; // NEEDS-CONFIGURATION: route belum ada di proyek ini
+export const INTERNET_URL = SITE; // NEEDS-CONFIGURATION: halaman layanan internet belum ada
+
+/* Ilustrasi produk ERP (konten halaman, bukan aset brand).
+   NEEDS-CONFIGURATION: aset resmi belum tersedia di repo (masih host
+   eksternal). Unduh ke public/img/erp-illustration.png lalu ganti nilai
+   di bawah menjadi "/img/erp-illustration.png" — seluruh komponen mengikuti. */
+export const ERP_IMAGE =
+  "https://image.qwenlm.ai/generated-images/00b49471-53ee-4e32-b0ec-f43fc53a8585/_result.png";
+
+/* Kontak resmi — diisi HANYA dengan data terverifikasi SKMNet.
+   Jangan mengarang nomor telepon, email, alamat, atau akun sosial. */
+export const CONTACTS: { label: string; value: string; href: string }[] = [
+  { label: "Situs resmi", value: "www.skmnetwork.com", href: SITE },
+  { label: "Kontak & dukungan", value: "halaman kontak resmi", href: CONTACT_URL },
+];
 
 export const navLinks = [
   { href: "#beranda", label: "Beranda" },

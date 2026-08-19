@@ -1,4 +1,4 @@
-import { erpModules, ERP_URL } from "../data";
+import { erpModules, ERP_URL, ERP_IMAGE } from "../data";
 import { useInView } from "../hooks";
 import {
   IconErp,
@@ -20,7 +20,7 @@ const modIcons: Record<string, React.ReactNode> = {
   monitor: <IconMonitor size={19} />,
 };
 
-const IMG = "https://image.qwenlm.ai/generated-images/00b49471-53ee-4e32-b0ec-f43fc53a8585/_result.png";
+
 
 export default function Erp() {
   const { ref, inView } = useInView<HTMLDivElement>(0.2);
@@ -49,7 +49,7 @@ export default function Erp() {
               <Reveal delay={250}>
                 <div className="relative mt-8 max-w-sm">
                   <img
-                    src={IMG}
+                    src={ERP_IMAGE}
                     alt="Pengelola usaha menggunakan sistem digital SKMNet melalui tablet"
                     width={1200}
                     height={1000}

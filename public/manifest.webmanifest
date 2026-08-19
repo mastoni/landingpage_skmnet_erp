@@ -12,15 +12,15 @@
   "theme_color": "#0B1F33",
   "icons": [
     {
-      "src": "https://image.qwenlm.ai/generated-images/e2692048-9d60-413c-9dab-e838ea3dbd14/_result.png",
-      "sizes": "512x512",
-      "type": "image/png",
+      "src": "/img/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "https://image.qwenlm.ai/generated-images/e2692048-9d60-413c-9dab-e838ea3dbd14/_result.png",
-      "sizes": "512x512",
-      "type": "image/png",
+      "src": "/img/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "maskable"
     }
   ]

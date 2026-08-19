@@ -11,6 +11,12 @@ export const PORTAL_URL = `${SITE}/portal`; // Portal Pelanggan (verifikasi path
 export const CONTACT_URL = `${SITE}/kontak`; // halaman kontak resmi (verifikasi path)
 export const INTERNET_URL = SITE; // halaman layanan internet (verifikasi path)
 
+/* Ilustrasi produk ERP (konten halaman, bukan aset brand).
+   Self-host ke /img/erp-illustration.png saat file resmi tersedia —
+   cukup ganti nilai di bawah, seluruh komponen mengikuti. */
+export const ERP_IMAGE =
+  "https://image.qwenlm.ai/generated-images/00b49471-53ee-4e32-b0ec-f43fc53a8585/_result.png";
+
 /* Kontak resmi — diisi HANYA dengan data terverifikasi SKMNet.
    Jangan mengarang nomor telepon, email, alamat, atau akun sosial. */
 export const CONTACTS: { label: string; value: string; href: string }[] = [

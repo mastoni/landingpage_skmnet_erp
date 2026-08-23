@@ -35,7 +35,7 @@ export const LogoMark = ({ size = 40 }: { size?: number }) => (
 export const Wordmark = ({ dark = false }: { dark?: boolean }) => (
   <span className="leading-none">
     <span className={`font-display block text-[21px] font-extrabold tracking-tight ${dark ? "text-paper" : "text-ink"}`}>
-      SKM<span className="text-marigold-2">Net</span>
+      SKM<span className="text-marigold-2">Network</span>
     </span>
     <span className={`font-mono block text-[8px] font-bold uppercase tracking-[0.42em] ${dark ? "text-paper/45" : "text-ink/40"}`}>
       tech · network

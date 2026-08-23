@@ -1,4 +1,4 @@
-/* ================= Konten statis SKMNet ================= */
+/* ================= Konten statis SKMNetwork ================= */
 
 /* ============ Konfigurasi terpusat: URL & kontak ============
    Semua URL keluar dikelola di satu tempat. Saat URL produksi
@@ -6,10 +6,10 @@
    komponen akan mengikuti. Hanya URL produksi publik yang boleh
    dicantumkan di sini — jangan menaruh alamat sistem tertutup. */
 export const SITE = "https://www.skmnetwork.com"; // VERIFIED — domain produksi landing publik
-export const ERP_URL = "https://erp.skmnetwork.com"; // VERIFIED — SKMNet ERP web produksi
-export const PORTAL_URL = `${SITE}/portal`; // NEEDS-CONFIGURATION: route belum ada di proyek ini
-export const CONTACT_URL = `${SITE}/kontak`; // NEEDS-CONFIGURATION: route belum ada di proyek ini
-export const INTERNET_URL = SITE; // NEEDS-CONFIGURATION: halaman layanan internet belum ada
+export const ERP_URL = "https://erp.skmnetwork.com"; // VERIFIED — SKMNetwork ERP web produksi
+export const PORTAL_URL = `${SITE}/#kontak`; // TBD: rute portal belum tersedia — arahkan ke bagian kontak
+export const CONTACT_URL = `${SITE}/#kontak`; // TBD: rute kontak belum tersedia — arahkan ke bagian kontak (id="kontak")
+export const INTERNET_URL = `${SITE}/#internet`; // TBD: halaman layanan internet belum tersedia — arahkan ke bagian internet (id="internet")
 
 /* Ilustrasi produk ERP (konten halaman, bukan aset brand).
    NEEDS-CONFIGURATION: aset resmi belum tersedia di repo (masih host
@@ -18,7 +18,7 @@ export const INTERNET_URL = SITE; // NEEDS-CONFIGURATION: halaman layanan intern
 export const ERP_IMAGE =
   "https://image.qwenlm.ai/generated-images/00b49471-53ee-4e32-b0ec-f43fc53a8585/_result.png";
 
-/* Kontak resmi — diisi HANYA dengan data terverifikasi SKMNet.
+/* Kontak resmi — diisi HANYA dengan data terverifikasi SKMNetwork.
    Jangan mengarang nomor telepon, email, alamat, atau akun sosial. */
 export const CONTACTS: { label: string; value: string; href: string }[] = [
   { label: "Situs resmi", value: "www.skmnetwork.com", href: SITE },
@@ -61,7 +61,7 @@ export const servicesMarquee = [
   "Internet & WiFi",
   "Network Infrastructure",
   "CCTV & Security",
-  "SKMNet ERP",
+  "SKMNetwork ERP",
   "IT Solutions",
   "Maintenance & Support",
   "Cloud & Server",
@@ -140,8 +140,8 @@ export const solutions = [
     id: "software",
     icon: "code",
     title: "Software & ERP",
-    desc: "Sistem digital untuk operasional bisnis — termasuk SKMNet ERP untuk penjualan dan inventory.",
-    points: ["SKMNet ERP terintegrasi", "Dikembangkan sesuai kebutuhan"],
+    desc: "Sistem digital untuk operasional bisnis — termasuk SKMNetwork ERP untuk penjualan dan inventory.",
+    points: ["SKMNetwork ERP terintegrasi", "Dikembangkan sesuai kebutuhan"],
     visual: "code",
     span: "lg:col-span-4",
   },
@@ -173,6 +173,19 @@ export const erpModules = [
   { icon: "target", title: "Pelanggan", desc: "Data pelanggan yang terpusat." },
   { icon: "expand", title: "Multi-Business / Multi-Tenant", desc: "Satu sistem untuk beberapa unit usaha." },
   { icon: "monitor", title: "Laporan & Monitoring", desc: "Ringkasan operasional untuk pengambilan keputusan." },
+];
+
+export const erpAccess = [
+  {
+    tag: "INCLUDED",
+    title: "Termasuk untuk Pelanggan Internet",
+    desc: "Untuk pelanggan internet SKMNetwork yang mendapatkan ERP sebagai bagian/benefit layanan sesuai ketentuan paket.",
+  },
+  {
+    tag: "STANDALONE",
+    title: "Berlangganan Mandiri",
+    desc: "Untuk UMKM yang ingin menggunakan ERP secara mandiri tanpa harus menjadi pelanggan internet SKMNetwork.",
+  },
 ];
 
 export const ecosystemLayers = [
@@ -319,7 +332,7 @@ export const devTracks = [
   },
   {
     icon: "erp",
-    title: "SKMNet ERP",
+    title: "SKMNetwork ERP",
     desc: "Sistem operasional bisnis yang dikembangkan bertahap.",
     focus: ["Kasir & penjualan", "Inventory", "Multi-tenant"],
     status: "Pengembangan berkelanjutan",
@@ -357,31 +370,39 @@ export const devTracks = [
 
 export const faqs = [
   {
-    q: "Apa saja layanan SKMNet?",
-    a: "SKMNet menghadirkan ekosistem teknologi yang mencakup internet & konektivitas, infrastruktur jaringan, CCTV & keamanan, software & ERP, solusi IT & digital, serta maintenance & dukungan teknis. Internet adalah salah satu bagian dari ekosistem ini, bukan keseluruhan layanan.",
+    q: "Apa saja layanan SKMNetwork?",
+    a: "SKMNetwork menghadirkan ekosistem teknologi yang mencakup internet & konektivitas, infrastruktur jaringan, CCTV & keamanan, software & ERP, solusi IT & digital, serta maintenance & dukungan teknis. Internet adalah salah satu bagian dari ekosistem ini, bukan keseluruhan layanan.",
   },
   {
     q: "Apakah tersedia layanan internet?",
-    a: "Ya. Internet & konektivitas tersedia sebagai bagian dari ekosistem SKMNet, untuk kebutuhan rumah, usaha, dan bisnis. Untuk detail layanan yang sesuai kebutuhan Anda, silakan hubungi SKMNet melalui halaman kontak resmi.",
+    a: "Ya. Internet & konektivitas tersedia sebagai bagian dari ekosistem SKMNetwork, untuk kebutuhan rumah, usaha, dan bisnis. Untuk detail layanan yang sesuai kebutuhan Anda, silakan hubungi SKMNetwork melalui halaman kontak resmi.",
   },
   {
-    q: "Apakah SKMNet menyediakan CCTV?",
-    a: "Ya. SKMNet menyediakan solusi CCTV & keamanan, termasuk instalasi dan teknologi monitoring, untuk rumah maupun tempat usaha.",
+    q: "Apakah SKMNetwork menyediakan CCTV?",
+    a: "Ya. SKMNetwork menyediakan solusi CCTV & keamanan, termasuk instalasi dan teknologi monitoring, untuk rumah maupun tempat usaha.",
   },
   {
     q: "Apakah tersedia solusi jaringan untuk usaha?",
-    a: "Tersedia. SKMNet menangani perancangan, instalasi, konfigurasi, dan pengelolaan jaringan untuk berbagai kebutuhan — dari toko dan kantor hingga bisnis dengan beberapa unit.",
+    a: "Tersedia. SKMNetwork menangani perancangan, instalasi, konfigurasi, dan pengelolaan jaringan untuk berbagai kebutuhan — dari toko dan kantor hingga bisnis dengan beberapa unit.",
   },
   {
-    q: "Apa itu SKMNet ERP?",
-    a: "SKMNet ERP adalah sistem terintegrasi untuk operasional bisnis: kasir & penjualan, inventory, produk, pelanggan, dukungan multi-business/multi-tenant, serta laporan & monitoring dalam satu sistem.",
+    q: "Apa itu SKMNetwork ERP?",
+    a: "SKMNetwork ERP adalah sistem terintegrasi untuk operasional bisnis: kasir & penjualan, inventory, produk, pelanggan, dukungan multi-business/multi-tenant, serta laporan & monitoring dalam satu sistem.",
   },
   {
-    q: "Bagaimana cara menghubungi SKMNet?",
-    a: "Anda dapat menghubungi SKMNet melalui halaman kontak resmi di situs skmnetwork.com atau melalui Portal Pelanggan. Ceritakan kebutuhan Anda, dan kami bantu menentukan solusi yang paling sesuai.",
+    q: "Bagaimana cara menghubungi SKMNetwork?",
+    a: "Anda dapat menghubungi SKMNetwork melalui halaman kontak resmi di situs skmnetwork.com atau melalui Portal Pelanggan. Ceritakan kebutuhan Anda, dan kami bantu menentukan solusi yang paling sesuai.",
   },
   {
     q: "Apakah tersedia portal pelanggan?",
-    a: "Ya. Portal Pelanggan SKMNet tersedia melalui situs resmi skmnetwork.com untuk membantu pelanggan dalam mengelola layanan dan permintaan dukungan.",
+    a: "Ya. Portal Pelanggan SKMNetwork tersedia melalui situs resmi skmnetwork.com untuk membantu pelanggan dalam mengelola layanan dan permintaan dukungan.",
+  },
+  {
+    q: "Apakah SKMNetwork ERP hanya untuk pelanggan internet SKMNetwork?",
+    a: "Tidak. SKMNetwork ERP dapat diakses oleh pelanggan internet SKMNetwork sebagai bagian dari layanan (sesuai ketentuan paket), sekaligus dapat berlangganan secara mandiri oleh UMKM tanpa harus menjadi pelanggan internet SKMNetwork.",
+  },
+  {
+    q: "Bagaimana cara mulai menggunakan SKMNetwork ERP?",
+    a: "Pelanggan internet SKMNetwork dapat menanyakan ketersediaan ERP sebagai benefit paket melalui halaman kontak resmi. UMKM yang ingin menggunakan ERP secara mandiri dapat mengakses langsung situs resmi ERP SKMNetwork.",
   },
 ];

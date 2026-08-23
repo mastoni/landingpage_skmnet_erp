@@ -15,7 +15,7 @@ const cols: { title: string; links: { label: string; href: string; ext?: boolean
   {
     title: "Produk",
     links: [
-      { label: "SKMNet ERP", href: "#erp" },
+      { label: "SKMNetwork ERP", href: "#erp" },
       { label: "Modul ERP", href: "#erp" },
       { label: "Login ERP", href: ERP_URL, ext: true },
     ],
@@ -42,7 +42,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t-4 border-marigold bg-ink text-paper" aria-label="Footer SKMNet">
+    <footer className="border-t-4 border-marigold bg-ink text-paper" aria-label="Footer SKMNetwork">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-12">
           {/* brand */}
@@ -89,7 +89,7 @@ export default function Footer() {
         {/* bar bawah */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t-2 border-dashed border-paper/15 pt-7 sm:flex-row">
           <p className="font-mono text-[11px] font-semibold text-paper/40">
-            © {year} SKMNet · Teknologi, Jaringan & Solusi Digital
+            © {year} SKMNetwork · Teknologi, Jaringan & Solusi Digital
           </p>
           <a
             href="#beranda"

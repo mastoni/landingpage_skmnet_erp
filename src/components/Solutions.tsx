@@ -140,13 +140,13 @@ export default function Solutions() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHead
-            eyebrow="Ekosistem layanan SKMNet"
+            eyebrow="Ekosistem layanan SKMNetwork"
             title={<span id="solusi-title">Semua Kebutuhan Teknologi, <span className="text-sky-2">Satu Ekosistem.</span></span>}
             copy="Enam layanan yang dirancang saling terhubung — dari konektivitas hingga sistem bisnis, dengan dukungan yang berkelanjutan."
           />
           <Reveal delay={200}>
             <a href="#erp" className="btn-arrow hidden items-center gap-2 font-mono text-sm font-extrabold uppercase tracking-widest text-ink-2 transition hover:text-ink lg:inline-flex">
-              Kenal SKMNet ERP <IconArrowUp size={15} />
+              Kenal SKMNetwork ERP <IconArrowUp size={15} />
             </a>
           </Reveal>
         </div>

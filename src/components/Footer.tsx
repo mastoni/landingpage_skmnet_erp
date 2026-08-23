@@ -15,7 +15,7 @@ const cols: { title: string; links: { label: string; href: string; ext?: boolean
   {
     title: "Produk",
     links: [
-      { label: "SKMNetwork ERP", href: "#erp" },
+      { label: "SKMNet ERP", href: "#erp" },
       { label: "Modul ERP", href: "#erp" },
       { label: "Login ERP", href: ERP_URL, ext: true },
     ],

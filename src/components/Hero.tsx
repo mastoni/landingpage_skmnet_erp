@@ -118,7 +118,7 @@ export default function Hero() {
             <Reveal delay={420}>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-ink/60 sm:text-lg">
                 SKMNetwork menghadirkan <strong className="font-bold text-ink">internet, jaringan, CCTV, dan solusi digital</strong>{" "}
-                — termasuk SKMNetwork ERP — untuk membantu UMKM dan bisnis tetap terhubung serta lebih mudah mengelola usahanya.
+                — termasuk SKMNet ERP — untuk membantu UMKM dan bisnis tetap terhubung serta lebih mudah mengelola usahanya.
               </p>
             </Reveal>
 

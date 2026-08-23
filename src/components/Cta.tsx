@@ -46,16 +46,16 @@ export default function Cta() {
               rel="noopener noreferrer"
               className="btn-arrow inline-flex items-center gap-2.5 rounded-xl bg-marigold px-7 py-4 text-base font-extrabold text-ink transition hover:-translate-y-0.5 hover:bg-marigold-2"
             >
-              Hubungi SKMNet
+              Hubungi SKMNetwork
               <IconArrowRight size={17} />
             </a>
-            <a
-              href="#erp"
-              className="inline-flex items-center gap-2.5 rounded-xl border-2 border-paper/25 px-7 py-[14px] text-base font-bold text-paper transition hover:border-marigold hover:text-marigold"
-            >
-              <IconErp size={18} />
-              Jelajahi SKMNet ERP
-            </a>
+              <a
+                href="#erp"
+                className="inline-flex items-center gap-2.5 rounded-xl border-2 border-paper/25 px-7 py-[14px] text-base font-bold text-paper transition hover:border-marigold hover:text-marigold"
+              >
+                <IconErp size={18} />
+                Pelajari SKMNet ERP
+              </a>
           </div>
         </Reveal>
         <Reveal delay={330}>

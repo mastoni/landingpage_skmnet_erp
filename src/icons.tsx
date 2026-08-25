@@ -242,3 +242,19 @@ export const IconCamera = (p: IconProps) => (
     <circle cx="12" cy="13" r="3.4" />
   </S>
 );
+
+/* gelembung chat + kilat — otomatisasi WhatsApp */
+export const IconWaBot = (p: IconProps) => (
+  <S {...p}>
+    <path d="M12 3.5c4.7 0 8.5 3.1 8.5 7s-3.8 7-8.5 7c-.9 0-1.8-.1-2.6-.3L5 19.5l1-3.2c-1.5-1.3-2.5-3-2.5-4.8 0-3.9 3.8-7 8.5-7Z" />
+    <path d="M13 7.5 10.8 11h2.4L11 14.5" strokeWidth={1.9} />
+  </S>
+);
+
+/* megafon — auto-posting & broadcast media sosial */
+export const IconMegaphone = (p: IconProps) => (
+  <S {...p}>
+    <path d="M3.5 10v4a1 1 0 0 0 1 1H7l8.5 4.2c.6.3 1.5-.1 1.5-.9V5.7c0-.8-.9-1.2-1.5-.9L7 9H4.5a1 1 0 0 0-1 1Z" />
+    <path d="M7 15.2V18a1.5 1.5 0 0 0 3 .3M20 10.2a2.6 2.6 0 0 1 0 3.6" strokeWidth={1.9} />
+  </S>
+);

@@ -62,6 +62,8 @@ export const servicesMarquee = [
   "Network Infrastructure",
   "CCTV & Security",
   "SKMNet ERP",
+  "WhatsApp Gateway",
+  "Auto-Posting Sosmed",
   "IT Solutions",
   "Maintenance & Support",
   "Cloud & Server",
@@ -149,8 +151,8 @@ export const solutions = [
     id: "solutions",
     icon: "chip",
     title: "IT & Digital Solutions",
-    desc: "Solusi teknologi yang disesuaikan dengan kebutuhan nyata bisnis — praktis dan tepat guna.",
-    points: ["Analisis kebutuhan", "Implementasi bertahap"],
+    desc: "Solusi teknologi dan produk digital yang disesuaikan dengan kebutuhan nyata bisnis — dari otomatisasi WhatsApp hingga auto-posting media sosial.",
+    points: ["WA Gateway & AutoPost", "Solusi sesuai kebutuhan"],
     visual: "chip",
     span: "lg:col-span-4",
   },
@@ -339,7 +341,7 @@ export const devTracks = [
     icon: "chip",
     title: "Digital Products",
     desc: "Produk dan solusi digital baru sesuai kebutuhan pelanggan.",
-    focus: ["Software", "Solusi custom"],
+    focus: ["WA Gateway", "Auto-posting", "Solusi custom"],
     status: "Bertahap",
     color: "brick",
     rotate: "rotate-2",
@@ -383,5 +385,9 @@ export const faqs = [
   {
     q: "Apakah tersedia portal pelanggan?",
     a: "Ya. Portal Pelanggan SKMNet tersedia melalui situs resmi skmnetwork.com untuk membantu pelanggan dalam mengelola layanan dan permintaan dukungan.",
+  },
+  {
+    q: "Apakah SKMNet menyediakan otomatisasi WhatsApp dan posting media sosial?",
+    a: "Ya. Sebagai bagian dari ekosistem produk digital, SKMNet mengembangkan WhatsApp Gateway untuk otomatisasi broadcast, auto-reply, dan notifikasi bisnis, serta AutoPost untuk penjadwalan posting media sosial lintas platform. Keduanya dirancang agar dapat terhubung dengan SKMNet ERP, sehingga operasional dan pemasaran berjalan dalam satu alur.",
   },
 ];

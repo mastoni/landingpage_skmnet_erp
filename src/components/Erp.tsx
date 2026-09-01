@@ -24,11 +24,11 @@ export default function Erp() {
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-32">
               <Reveal>
-                <Eyebrow>Produk unggulan · SKMNet ERP</Eyebrow>
+                <Eyebrow>Produk unggulan · SKMNetwork ERP</Eyebrow>
               </Reveal>
               <Reveal delay={90}>
                 <h2 id="erp-title" className="font-display mt-5 text-3xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-4xl lg:text-[2.75rem]">
-                  SKMNet ERP — <span className="text-marigold-2">Menyatukan</span> Operasional Bisnis.
+                  SKMNetwork ERP — <span className="text-marigold-2">Menyatukan</span> Operasional Bisnis.
                 </h2>
               </Reveal>
               <Reveal delay={170}>
@@ -57,7 +57,7 @@ export default function Erp() {
                     rel="noopener noreferrer"
                     className="btn-arrow inline-flex items-center gap-2.5 rounded-xl bg-ink px-6 py-3.5 text-[15px] font-extrabold text-paper transition hover:-translate-y-0.5 hover:bg-ink-2"
                   >
-                    Pelajari SKMNet ERP
+                    Pelajari SKMNetwork ERP
                     <IconArrowRight size={16} />
                   </a>
                   <a href="#kontak" className="inline-flex items-center gap-2.5 rounded-xl border-2 border-ink/20 px-6 py-[12px] text-[15px] font-bold text-ink transition hover:border-ink/50 hover:bg-card">
@@ -88,7 +88,7 @@ export default function Erp() {
                     <span className="h-3 w-3 rounded-full bg-marigold/80" />
                     <span className="h-3 w-3 rounded-full bg-leaf/80" />
                   </div>
-                  <p className="font-mono text-[11px] font-bold tracking-widest text-paper/50">skmnet-erp · modul inti</p>
+                  <p className="font-mono text-[11px] font-bold tracking-widest text-paper/50">skmnetwork-erp · modul inti</p>
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-leaf text-leaf ping-dot" />
                 </div>
 
@@ -130,7 +130,7 @@ export default function Erp() {
         {/* Dynamic ERP Plans Showcase with static erpAccess fallback */}
         <ShowcasePlans
           section="ERP_PLANS"
-          eyebrowText="Paket Layanan · SKMNet ERP"
+          eyebrowText="Paket Layanan · SKMNetwork ERP"
           title="Pilihan Paket ERP untuk Kebutuhan Bisnis Anda"
           description="Pilih paket langganan software ERP yang sesuai dengan skala operasional dan pertumbuhan unit usaha Anda."
           fallbackNode={
@@ -140,7 +140,7 @@ export default function Erp() {
               </Reveal>
               <Reveal delay={90}>
                 <h2 className="font-display mt-4 text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
-                  SKMNet ERP untuk Pelanggan Internet maupun UMKM Mandiri
+                  SKMNetwork ERP untuk Pelanggan Internet maupun UMKM Mandiri
                 </h2>
               </Reveal>
               <div className="mt-8 grid gap-5 md:grid-cols-2">

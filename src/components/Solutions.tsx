@@ -146,7 +146,7 @@ export default function Solutions() {
           />
           <Reveal delay={200}>
             <a href="#erp" className="btn-arrow hidden items-center gap-2 font-mono text-sm font-extrabold uppercase tracking-widest text-ink-2 transition hover:text-ink lg:inline-flex">
-              Kenal SKMNet ERP <IconArrowUp size={15} />
+              Kenal SKMNetwork ERP <IconArrowUp size={15} />
             </a>
           </Reveal>
         </div>

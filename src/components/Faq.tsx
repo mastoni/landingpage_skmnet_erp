@@ -14,7 +14,7 @@ export default function Faq() {
             <SectionHead
               eyebrow="Tanya jawab"
               title={<span id="faq-title">Hal yang Sering <span className="text-sky-2">Ditanyakan</span></span>}
-              copy="Jawaban singkat untuk pertanyaan yang paling sering masuk seputar layanan dan produk SKMNet."
+              copy="Jawaban singkat untuk pertanyaan yang paling sering masuk seputar layanan dan produk SKMNetwork."
             />
             <Reveal delay={220}>
               <div className="mt-8 rounded-2xl border-2 border-ink/10 bg-paper p-6">

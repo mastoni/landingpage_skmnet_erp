@@ -9,7 +9,7 @@ const Diamond = () => (
 export default function Marquee() {
   const list = [...servicesMarquee, ...servicesMarquee];
   return (
-    <section aria-label="Layanan SKMNet" className="marquee overflow-hidden border-b-2 border-ink/10 bg-marigold py-4">
+    <section aria-label="Layanan SKMNetwork" className="marquee overflow-hidden border-b-2 border-ink/10 bg-marigold py-4">
       <div className="marquee-track flex w-max items-center gap-8 pr-8" style={{ "--mq-dur": "34s" } as React.CSSProperties}>
         {list.map((s, i) => (
           <span key={i} className="flex items-center gap-8 whitespace-nowrap">

@@ -27,8 +27,8 @@ export default function Problems() {
               </Reveal>
               <Reveal delay={170}>
                 <p className="mt-5 text-base leading-relaxed text-ink/60 sm:text-lg">
-                  Banyak rumah dan bisnis sudah memakai teknologi — tapi berjalan terpisah-pisah, sulit dipantau,
-                  dan tidak saling mendukung. Di sinilah pendekatan ekosistem SKMNet bekerja.
+                  Banyak UMKM dan bisnis sudah memakai teknologi — tapi berjalan terpisah-pisah, sulit dipantau,
+                  dan tidak saling mendukung. Di sinilah pendekatan ekosistem SKMNetwork bekerja.
                 </p>
               </Reveal>
               <Reveal delay={250}>

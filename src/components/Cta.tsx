@@ -49,13 +49,13 @@ export default function Cta() {
               Hubungi SKMNetwork
               <IconArrowRight size={17} />
             </a>
-              <a
-                href="#erp"
-                className="inline-flex items-center gap-2.5 rounded-xl border-2 border-paper/25 px-7 py-[14px] text-base font-bold text-paper transition hover:border-marigold hover:text-marigold"
-              >
-                <IconErp size={18} />
-                Pelajari SKMNet ERP
-              </a>
+            <a
+              href="#erp"
+              className="inline-flex items-center gap-2.5 rounded-xl border-2 border-paper/25 px-7 py-[14px] text-base font-bold text-paper transition hover:border-marigold hover:text-marigold"
+            >
+              <IconErp size={18} />
+              Pelajari SKMNetwork ERP
+            </a>
           </div>
         </Reveal>
         <Reveal delay={330}>

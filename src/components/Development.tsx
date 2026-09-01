@@ -33,7 +33,7 @@ export default function Development() {
         <SectionHead
           eyebrow="Roadmap produk"
           title={<span id="dev-title">Teknologi yang <span className="text-sky-2">Terus Dikembangkan</span></span>}
-          copy="SKMNet bukan produk sekali jadi. Setiap lini teknologi dirawat dan dikembangkan mengikuti kebutuhan nyata pelanggan."
+          copy="SKMNetwork bukan produk sekali jadi. Setiap lini teknologi dirawat dan dikembangkan mengikuti kebutuhan nyata pelanggan."
         />
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -69,10 +69,10 @@ export default function Development() {
                 Ada kebutuhan yang belum <span className="bg-marigold px-1.5">tercover?</span>
               </p>
               <p className="mt-3 text-sm font-semibold text-ink/60">
-                Ceritakan pada kami — banyak solusi SKMNet lahir langsung dari kebutuhan pelanggan.
+                Ceritakan pada kami — banyak solusi SKMNetwork lahir langsung dari kebutuhan pelanggan.
               </p>
               <span className="btn-arrow mt-5 inline-flex items-center gap-2 font-mono text-sm font-extrabold uppercase tracking-widest text-brick">
-                Hubungi SKMNet
+                Hubungi SKMNetwork
                 <IconArrowRight size={15} />
               </span>
             </a>

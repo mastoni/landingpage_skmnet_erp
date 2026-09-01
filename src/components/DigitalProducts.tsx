@@ -176,13 +176,13 @@ export default function DigitalProducts() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHead
-          eyebrow="Produk digital · Ekosistem SKMNet"
+          eyebrow="Produk digital · Ekosistem SKMNetwork"
           title={
             <span id="produk-digital-title">
               Dua Produk Digital yang <span className="text-brick">Bekerja untuk Anda 24/7</span>
             </span>
           }
-          copy="Selain konektivitas dan SKMNet ERP, ekosistem SKMNet diperkuat produk otomatisasi: WhatsApp Gateway dan AutoPost. Keduanya dirancang agar data bisnis mengalir dari operasional ke pelanggan — tanpa dikerjakan manual satu per satu."
+          copy="Selain konektivitas dan SKMNetwork ERP, ekosistem SKMNetwork diperkuat produk otomatisasi: WhatsApp Gateway dan AutoPost. Keduanya dirancang agar data bisnis mengalir dari operasional ke pelanggan — tanpa dikerjakan manual satu per satu."
         />
 
         <div className="mt-14 space-y-16 sm:space-y-20">
@@ -196,14 +196,14 @@ export default function DigitalProducts() {
                   </span>
                   <div>
                     <p className="font-mono text-[10px] font-extrabold uppercase tracking-[0.22em] text-leaf">produk digital 01</p>
-                    <h3 className="font-display text-2xl font-extrabold text-ink sm:text-3xl">SKMNet WA Gateway</h3>
+                    <h3 className="font-display text-2xl font-extrabold text-ink sm:text-3xl">SKMNetwork WA Gateway</h3>
                   </div>
                 </div>
               </Reveal>
               <Reveal delay={100}>
                 <p className="mt-5 text-[15px] leading-relaxed text-ink/65">
                   Otomatisasi WhatsApp untuk bisnis: pelanggan dijawab seketika, broadcast promo berjalan terjadwal,
-                  dan notifikasi pesanan terkirim otomatis dari SKMNet ERP.
+                  dan notifikasi pesanan terkirim otomatis dari SKMNetwork ERP.
                 </p>
               </Reveal>
               <Reveal delay={180}>
@@ -211,7 +211,7 @@ export default function DigitalProducts() {
                   {[
                     "Auto-reply & sambutan pelanggan otomatis",
                     "Broadcast promo terjadwal ke banyak kontak",
-                    "Notifikasi pesanan & invoice dari SKMNet ERP",
+                    "Notifikasi pesanan & invoice dari SKMNetwork ERP",
                     "Webhook & API untuk integrasi sistem",
                   ].map((f) => (
                     <li key={f} className="flex items-start gap-3 text-[15px] font-semibold text-ink/75">
@@ -248,14 +248,14 @@ export default function DigitalProducts() {
                   </span>
                   <div>
                     <p className="font-mono text-[10px] font-extrabold uppercase tracking-[0.22em] text-brick">produk digital 02</p>
-                    <h3 className="font-display text-2xl font-extrabold text-ink sm:text-3xl">SKMNet AutoPost</h3>
+                    <h3 className="font-display text-2xl font-extrabold text-ink sm:text-3xl">SKMNetwork AutoPost</h3>
                   </div>
                 </div>
               </Reveal>
               <Reveal delay={100}>
                 <p className="mt-5 text-[15px] leading-relaxed text-ink/65">
                   Auto-posting media sosial: susun konten sekali, jadwalkan ke banyak platform, dan biarkan antrean
-                  posting bekerja sendiri — termasuk promo yang diambil dari katalog SKMNet ERP.
+                  posting bekerja sendiri — termasuk promo yang diambil dari katalog SKMNetwork ERP.
                 </p>
               </Reveal>
               <Reveal delay={180}>
@@ -264,7 +264,7 @@ export default function DigitalProducts() {
                     "Jadwal posting lintas platform: IG, FB, TikTok, Status WA",
                     "Kalender konten & antrean posting mingguan",
                     "Satu konten, banyak platform — caption per platform",
-                    "Promo katalog produk langsung dari SKMNet ERP",
+                    "Promo katalog produk langsung dari SKMNetwork ERP",
                   ].map((f) => (
                     <li key={f} className="flex items-start gap-3 text-[15px] font-semibold text-ink/75">
                       <IconCheck size={18} className="mt-0.5 shrink-0 text-brick" />
@@ -293,7 +293,7 @@ export default function DigitalProducts() {
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-4 md:flex-row md:gap-6">
               {[
-                { icon: <IconErp size={20} />, label: "SKMNet ERP", sub: "data produk & pesanan", tone: "border-marigold/50 bg-marigold/10 text-marigold-2" },
+                { icon: <IconErp size={20} />, label: "SKMNetwork ERP", sub: "data produk & pesanan", tone: "border-marigold/50 bg-marigold/10 text-marigold-2" },
                 { icon: <IconWaBot size={20} />, label: "WA Gateway", sub: "konfirmasi & notifikasi", tone: "border-leaf/40 bg-leaf/10 text-leaf" },
                 { icon: <IconMegaphone size={20} />, label: "AutoPost", sub: "promo & katalog", tone: "border-brick/40 bg-brick/10 text-brick" },
               ].map((n, i) => (

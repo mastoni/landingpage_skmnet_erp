@@ -18,7 +18,7 @@ export default function Why() {
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-32">
               <Reveal>
-                <Eyebrow>Mengapa SKMNet</Eyebrow>
+                <Eyebrow>Mengapa SKMNetwork</Eyebrow>
               </Reveal>
               <Reveal delay={90}>
                 <h2 id="tentang-title" className="font-display mt-5 text-3xl font-extrabold leading-[1.06] tracking-tight text-ink sm:text-4xl lg:text-[2.75rem]">
@@ -27,7 +27,7 @@ export default function Why() {
               </Reveal>
               <Reveal delay={170}>
                 <p className="mt-5 text-base leading-relaxed text-ink/60 sm:text-lg">
-                  SKMNet berangkat dari masalah nyata di lapangan: teknologi yang terpasang tapi tidak terkelola.
+                  SKMNetwork berangkat dari masalah nyata di lapangan: teknologi yang terpasang tapi tidak terkelola.
                   Kami membangun ekosistem yang praktis, terintegrasi, dan terus didampingi — untuk rumah, usaha, dan bisnis.
                 </p>
               </Reveal>

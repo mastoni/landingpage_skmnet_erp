@@ -34,7 +34,7 @@ export default function Nav() {
         aria-label="Navigasi utama"
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
-          <a href="#beranda" className="flex items-center gap-2.5" aria-label="SKMNet beranda">
+          <a href="#beranda" className="flex items-center gap-2.5" aria-label="SKMNetwork beranda">
             <LogoMark size={40} />
             <Wordmark />
           </a>

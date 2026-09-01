@@ -6,7 +6,7 @@
    komponen akan mengikuti. Hanya URL produksi publik yang boleh
    dicantumkan di sini — jangan menaruh alamat sistem tertutup. */
 export const SITE = "https://www.skmnetwork.com"; // VERIFIED — domain produksi landing publik
-export const ERP_URL = "https://erp.skmnetwork.com"; // VERIFIED — SKMNet ERP web produksi
+export const ERP_URL = "https://erp.skmnetwork.com"; // VERIFIED — SKMNetwork ERP web produksi
 export const PORTAL_URL = `${SITE}/#kontak`; // TBD: rute portal belum tersedia — arahkan ke bagian kontak
 export const CONTACT_URL = `${SITE}/#kontak`; // TBD: rute kontak belum tersedia — arahkan ke bagian kontak (id="kontak")
 export const INTERNET_URL = `${SITE}/#internet`; // TBD: halaman layanan internet belum tersedia — arahkan ke bagian internet (id="internet")
@@ -61,7 +61,7 @@ export const servicesMarquee = [
   "Internet & WiFi",
   "Network Infrastructure",
   "CCTV & Security",
-  "SKMNet ERP",
+  "SKMNetwork ERP",
   "WhatsApp Gateway",
   "Auto-Posting Sosmed",
   "IT Solutions",
@@ -142,8 +142,8 @@ export const solutions = [
     id: "software",
     icon: "code",
     title: "Software & ERP",
-    desc: "Sistem digital untuk operasional bisnis — termasuk SKMNet ERP untuk penjualan dan inventory.",
-    points: ["SKMNet ERP terintegrasi", "Dikembangkan sesuai kebutuhan"],
+    desc: "Sistem digital untuk operasional bisnis — termasuk SKMNetwork ERP untuk penjualan dan inventory.",
+    points: ["SKMNetwork ERP terintegrasi", "Dikembangkan sesuai kebutuhan"],
     visual: "code",
     span: "lg:col-span-4",
   },
@@ -334,7 +334,7 @@ export const devTracks = [
   },
   {
     icon: "erp",
-    title: "SKMNet ERP",
+    title: "SKMNetwork ERP",
     desc: "Sistem operasional bisnis yang dikembangkan bertahap.",
     focus: ["Kasir & penjualan", "Inventory", "Multi-tenant"],
     status: "Pengembangan berkelanjutan",
@@ -388,8 +388,8 @@ export const faqs = [
     a: "Tersedia. SKMNetwork menangani perancangan, instalasi, konfigurasi, dan pengelolaan jaringan untuk berbagai kebutuhan — dari toko dan kantor hingga bisnis dengan beberapa unit.",
   },
   {
-    q: "Apa itu SKMNet ERP?",
-    a: "SKMNet ERP adalah sistem terintegrasi untuk operasional bisnis: kasir & penjualan, inventory, produk, pelanggan, dukungan multi-business/multi-tenant, serta laporan & monitoring dalam satu sistem.",
+    q: "Apa itu SKMNetwork ERP?",
+    a: "SKMNetwork ERP adalah sistem terintegrasi untuk operasional bisnis: kasir & penjualan, inventory, produk, pelanggan, dukungan multi-business/multi-tenant, serta laporan & monitoring dalam satu sistem.",
   },
   {
     q: "Bagaimana cara menghubungi SKMNetwork?",
@@ -400,15 +400,15 @@ export const faqs = [
     a: "Ya. Portal Pelanggan SKMNetwork tersedia melalui situs resmi skmnetwork.com untuk membantu pelanggan dalam mengelola layanan dan permintaan dukungan.",
   },
   {
-    q: "Apakah SKMNet ERP hanya untuk pelanggan internet SKMNetwork?",
-    a: "Tidak. SKMNet ERP dapat diakses oleh pelanggan internet SKMNetwork sebagai bagian dari layanan (sesuai ketentuan paket), sekaligus dapat berlangganan secara mandiri oleh UMKM tanpa harus menjadi pelanggan internet SKMNetwork.",
+    q: "Apakah SKMNetwork ERP hanya untuk pelanggan internet SKMNetwork?",
+    a: "Tidak. SKMNetwork ERP dapat diakses oleh pelanggan internet SKMNetwork sebagai bagian dari layanan (sesuai ketentuan paket), sekaligus dapat berlangganan secara mandiri oleh UMKM tanpa harus menjadi pelanggan internet SKMNetwork.",
   },
   {
-    q: "Bagaimana cara mulai menggunakan SKMNet ERP?",
-    a: "Pelanggan internet SKMNetwork dapat menanyakan ketersediaan ERP sebagai benefit paket melalui halaman kontak resmi. UMKM yang ingin menggunakan ERP secara mandiri dapat mengakses langsung situs resmi SKMNet ERP.",
+    q: "Bagaimana cara mulai menggunakan SKMNetwork ERP?",
+    a: "Pelanggan internet SKMNetwork dapat menanyakan ketersediaan ERP sebagai benefit paket melalui halaman kontak resmi. UMKM yang ingin menggunakan ERP secara mandiri dapat mengakses langsung situs resmi SKMNetwork ERP.",
   },
   {
-    q: "Apakah SKMNet menyediakan otomatisasi WhatsApp dan posting media sosial?",
-    a: "Ya. Sebagai bagian dari ekosistem produk digital, SKMNet mengembangkan WhatsApp Gateway untuk otomatisasi broadcast, auto-reply, dan notifikasi bisnis, serta AutoPost untuk penjadwalan posting media sosial lintas platform. Keduanya dirancang agar dapat terhubung dengan SKMNet ERP, sehingga operasional dan pemasaran berjalan dalam satu alur.",
+    q: "Apakah SKMNetwork menyediakan otomatisasi WhatsApp dan posting media sosial?",
+    a: "Ya. Sebagai bagian dari ekosistem produk digital, SKMNetwork mengembangkan WhatsApp Gateway untuk otomatisasi broadcast, auto-reply, dan notifikasi bisnis, serta AutoPost untuk penjadwalan posting media sosial lintas platform. Keduanya dirancang agar dapat terhubung dengan SKMNetwork ERP, sehingga operasional dan pemasaran berjalan dalam satu alur.",
   },
 ];

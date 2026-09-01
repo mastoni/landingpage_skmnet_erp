@@ -69,7 +69,7 @@ export default function Internet() {
                 <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-2xl border-2 border-ink bg-ink text-marigold shadow-[0_25px_50px_-20px_rgba(11,31,51,0.55)]">
                   <IconWifi size={38} />
                   <span className="absolute -bottom-3 rounded-full border border-ink/10 bg-card px-3 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/55">
-                    skmnet
+                    skmnetwork
                   </span>
                 </div>
 

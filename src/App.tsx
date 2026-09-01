@@ -4,6 +4,7 @@ import Marquee from "./components/Marquee";
 import Problems from "./components/Problems";
 import Solutions from "./components/Solutions";
 import Erp from "./components/Erp";
+import DigitalProducts from "./components/DigitalProducts";
 import Ecosystem from "./components/Ecosystem";
 import HowItWorks from "./components/HowItWorks";
 import Customers from "./components/Customers";
@@ -28,6 +29,7 @@ export default function App() {
         <Problems />
         <Solutions />
         <Erp />
+        <DigitalProducts />
         <Ecosystem />
         <HowItWorks />
         <Customers />

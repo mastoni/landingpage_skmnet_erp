@@ -1,6 +1,7 @@
 import { INTERNET_URL } from "../data";
 import { IconWifi, IconHome, IconStore, IconOffice, IconArrowRight, IconCheck } from "../icons";
 import { Reveal, Eyebrow } from "./Ui";
+import ShowcasePlans from "./ShowcasePlans";
 
 export default function Internet() {
   return (
@@ -20,7 +21,7 @@ export default function Internet() {
             <Reveal delay={170}>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-ink/60 sm:text-lg">
                 Koneksi internet yang mendukung kebutuhan rumah, usaha, dan aktivitas digital. Internet adalah fondasi
-                ekosistem SKMNet — yang kemudian diperkuat jaringan, keamanan, dan sistem di atasnya.
+                ekosistem SKMNetwork — yang kemudian diperkuat jaringan, keamanan, dan sistem di atasnya.
               </p>
             </Reveal>
             <Reveal delay={240}>
@@ -86,6 +87,14 @@ export default function Internet() {
             </Reveal>
           </div>
         </div>
+
+        {/* Dynamic ISP Plans Showcase if available */}
+        <ShowcasePlans
+          section="ISP_PLANS"
+          eyebrowText="Paket Internet Broadband"
+          title="Pilihan Kecepatan Internet SKMNetwork"
+          description="Konektivitas stabil berkecepatan tinggi dengan alokasi bandwidth optimal untuk kenyamanan rumah dan kelancaran bisnis."
+        />
       </div>
     </section>
   );

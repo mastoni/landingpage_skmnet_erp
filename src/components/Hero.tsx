@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useScramble } from "../hooks";
 import { capabilities, heroNodes } from "../data";
+import { fetchPublicShowcase } from "../lib/api";
+import type { PublicShowcaseItem } from "../types";
 
 const STATUS_MSGS = [
   { label: "semua node terhubung", dot: "bg-leaf text-leaf" },
@@ -64,10 +66,25 @@ function HeadlineWord({ w, i, accent = false }: { w: string; i: number; accent?:
 export default function Hero() {
   const eyebrow = useScramble("TEKNOLOGI • JARINGAN • SOLUSI DIGITAL", true);
   const [statusIdx, setStatusIdx] = useState(0);
+  const [featuredItem, setFeaturedItem] = useState<PublicShowcaseItem | null>(null);
 
   useEffect(() => {
     const id = window.setInterval(() => setStatusIdx((i) => (i + 1) % STATUS_MSGS.length), 2600);
     return () => window.clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    let active = true;
+    fetchPublicShowcase("HERO_FEATURED")
+      .then((res) => {
+        if (active && res.items && res.items.length > 0) {
+          setFeaturedItem(res.items[0]);
+        }
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
   }, []);
 
   const status = STATUS_MSGS[statusIdx];
@@ -83,10 +100,24 @@ export default function Hero() {
           {/* kiri: pesan */}
           <div className="lg:col-span-6 xl:col-span-6">
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-card px-3.5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-ink-2">
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-leaf text-leaf ping-dot" />
-                <span className="min-h-[1em]">{eyebrow}</span>
-              </span>
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-card px-3.5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-ink-2">
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-leaf text-leaf ping-dot" />
+                  <span className="min-h-[1em]">{eyebrow}</span>
+                </span>
+                {featuredItem && (
+                  <a
+                    href={featuredItem.cta_url || "#erp"}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-marigold/40 bg-marigold/15 px-3 py-1 font-mono text-[10px] font-bold text-ink transition hover:bg-marigold/25"
+                  >
+                    <span className="rounded-full bg-marigold px-1.5 py-0.5 text-[8px] font-extrabold uppercase text-ink">
+                      {featuredItem.marketing_badge || "FEATURED"}
+                    </span>
+                    <span>{featuredItem.display_name}</span>
+                    <IconArrowRight size={11} />
+                  </a>
+                )}
+              </div>
             </Reveal>
 
             <h1

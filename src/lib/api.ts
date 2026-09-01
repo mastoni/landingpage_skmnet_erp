@@ -2,24 +2,16 @@ import type { PublicShowcaseResponse, ShowcaseSection } from '../types'
 
 // ============================================================================
 // API Base URL Resolution
+// Prioritizes VITE_API_URL environment injection with canonical production fallback.
 // ============================================================================
 
 export function getApiBaseUrl(): string {
-  // 1. Explicit environment variable via Vite
   const envUrl = (import.meta as any).env?.VITE_API_URL
-  if (envUrl && typeof envUrl === 'string' && envUrl.trim().length > 0) {
+  if (typeof envUrl === 'string' && envUrl.trim().length > 0) {
     return envUrl.replace(/\/+$/, '')
   }
 
-  // 2. Browser dynamic host detection for staging vs production
-  if (typeof window !== 'undefined' && window.location) {
-    const hostname = window.location.hostname
-    if (hostname.includes('staging') || hostname.includes('localhost') || hostname.includes('127.0.0.1')) {
-      return 'https://staging-api.skmnetwork.com'
-    }
-  }
-
-  // 3. Canonical production fallback
+  // Canonical production endpoint
   return 'https://api.skmnetwork.com'
 }
 

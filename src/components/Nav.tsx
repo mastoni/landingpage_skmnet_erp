@@ -49,17 +49,15 @@ export default function Nav() {
 
           <div className="flex items-center gap-3">
             <a
-              href={ERP_URL}
+              href={`${ERP_URL}/login`}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden font-mono text-[10px] font-bold uppercase tracking-widest text-ink/45 transition hover:text-ink xl:block"
             >
-              Login Admin
+              Masuk ERP
             </a>
             <a
               href={PORTAL_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="hidden items-center gap-2 rounded-lg border-2 border-ink/15 px-3.5 py-2 text-sm font-bold text-ink transition hover:border-ink/40 sm:inline-flex"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -110,9 +108,16 @@ export default function Nav() {
               ))}
               <div className="mt-2 flex flex-col gap-2">
                 <a
-                  href={PORTAL_URL}
+                  href={`${ERP_URL}/login`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="rounded-lg border-2 border-ink/15 px-3 py-2.5 text-center text-sm font-bold text-ink"
+                >
+                  Masuk ERP
+                </a>
+                <a
+                  href={PORTAL_URL}
                   onClick={() => setOpen(false)}
                   className="rounded-lg border-2 border-ink/15 px-3 py-2.5 text-center text-sm font-bold text-ink"
                 >

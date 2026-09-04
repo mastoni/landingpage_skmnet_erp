@@ -42,8 +42,6 @@ export default function Cta() {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
               href={CONTACT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="btn-arrow inline-flex items-center gap-2.5 rounded-xl bg-marigold px-7 py-4 text-base font-extrabold text-ink transition hover:-translate-y-0.5 hover:bg-marigold-2"
             >
               Hubungi SKMNetwork

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { fetchPublicShowcase } from '../lib/api'
 import { formatRupiah, formatBillingCycleSuffix } from '../lib/format'
+import { resolveShowcaseCtaUrl } from '../lib/cta'
 import type { PublicShowcaseItem, ShowcaseSection, PlanPricingDTO, BundlePricingDTO } from '../types'
 import { IconCheck, IconArrowRight } from '../icons'
 import { Reveal, Eyebrow } from './Ui'
@@ -129,6 +130,8 @@ export default function ShowcasePlans({
           const isFeatured = item.is_featured || Boolean(item.marketing_badge)
           const planPricing = item.item_type === 'PLAN' ? (item.pricing as PlanPricingDTO | null) : null
           const bundlePricing = item.item_type === 'BUNDLE' ? (item.pricing as BundlePricingDTO | null) : null
+          const ctaUrl = resolveShowcaseCtaUrl(item)
+          const isExternal = ctaUrl.startsWith('http://') || ctaUrl.startsWith('https://')
 
           return (
             <Reveal key={item.id} delay={idx * 80}>
@@ -229,9 +232,9 @@ export default function ShowcasePlans({
                 {/* Call to Action button */}
                 <div className="mt-8 pt-4 border-t border-ink/10">
                   <a
-                    href={item.cta_url || ERP_URL}
-                    target={item.cta_url?.startsWith('http') ? '_blank' : '_self'}
-                    rel="noopener noreferrer"
+                    href={ctaUrl}
+                    target={isExternal ? '_blank' : '_self'}
+                    rel={isExternal ? 'noopener noreferrer' : undefined}
                     className={`btn-arrow flex w-full items-center justify-center gap-2 rounded-xl py-3.5 px-4 text-center text-sm font-extrabold transition ${
                       isFeatured
                         ? 'bg-marigold text-ink hover:bg-[#d99400] shadow-sm'

@@ -17,7 +17,7 @@ const cols: { title: string; links: { label: string; href: string; ext?: boolean
     links: [
       { label: "SKMNetwork ERP", href: "#erp" },
       { label: "Modul ERP", href: "#erp" },
-      { label: "Login ERP", href: ERP_URL, ext: true },
+      { label: "Masuk ERP", href: `${ERP_URL}/login`, ext: true },
     ],
   },
   {
@@ -31,7 +31,7 @@ const cols: { title: string; links: { label: string; href: string; ext?: boolean
   {
     title: "Dukungan",
     links: [
-      { label: "Portal Pelanggan", href: PORTAL_URL, ext: true },
+      { label: "Portal Pelanggan", href: PORTAL_URL },
       { label: "Bantuan", href: "#faq" },
       { label: "FAQ", href: "#faq" },
     ],

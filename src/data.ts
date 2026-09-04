@@ -7,9 +7,9 @@
    dicantumkan di sini — jangan menaruh alamat sistem tertutup. */
 export const SITE = "https://www.skmnetwork.com"; // VERIFIED — domain produksi landing publik
 export const ERP_URL = "https://erp.skmnetwork.com"; // VERIFIED — SKMNetwork ERP web produksi
-export const PORTAL_URL = `${SITE}/#kontak`; // TBD: rute portal belum tersedia — arahkan ke bagian kontak
-export const CONTACT_URL = `${SITE}/#kontak`; // TBD: rute kontak belum tersedia — arahkan ke bagian kontak (id="kontak")
-export const INTERNET_URL = `${SITE}/#internet`; // TBD: halaman layanan internet belum tersedia — arahkan ke bagian internet (id="internet")
+export const PORTAL_URL = "#kontak"; // TBD: rute portal belum tersedia — arahkan ke bagian kontak
+export const CONTACT_URL = "#kontak"; // TBD: rute kontak belum tersedia — arahkan ke bagian kontak (id="kontak")
+export const INTERNET_URL = "#internet"; // arahkan ke bagian internet (id="internet")
 
 /* Ilustrasi produk ERP (konten halaman, bukan aset brand).
    NEEDS-CONFIGURATION: aset resmi belum tersedia di repo (masih host

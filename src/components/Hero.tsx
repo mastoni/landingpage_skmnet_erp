@@ -1,16 +1,8 @@
 import { useEffect, useState } from "react";
 import { useScramble } from "../hooks";
-import { capabilities, heroNodes } from "../data";
+import { capabilities, heroNodes, WHATSAPP_URL } from "../data";
 import { fetchPublicShowcase } from "../lib/api";
 import type { PublicShowcaseItem } from "../types";
-
-const STATUS_MSGS = [
-  { label: "semua node terhubung", dot: "bg-leaf text-leaf" },
-  { label: "cctv · online", dot: "bg-leaf text-leaf" },
-  { label: "erp · aktif", dot: "bg-marigold text-marigold" },
-  { label: "jaringan · stabil", dot: "bg-leaf text-leaf" },
-  { label: "backup · terjadwal", dot: "bg-sky-2 text-sky-2" },
-];
 import {
   LogoMark,
   IconWifi,
@@ -19,9 +11,21 @@ import {
   IconCode,
   IconCloud,
   IconBusiness,
+  IconStore,
+  IconErp,
+  IconChip,
   IconArrowRight,
+  IconCheck,
 } from "../icons";
 import { Reveal } from "./Ui";
+
+const STATUS_MSGS = [
+  { label: "buku warung · offline ready", dot: "bg-leaf text-leaf" },
+  { label: "pos kasir · aktif", dot: "bg-leaf text-leaf" },
+  { label: "skmnet erp · sinkron", dot: "bg-marigold text-marigold" },
+  { label: "jaringan & cctv · stabil", dot: "bg-leaf text-leaf" },
+  { label: "backup sheets · aman", dot: "bg-sky-2 text-sky-2" },
+];
 
 const nodeIcons: Record<string, React.ReactNode> = {
   wifi: <IconWifi size={16} />,
@@ -30,16 +34,18 @@ const nodeIcons: Record<string, React.ReactNode> = {
   code: <IconCode size={16} />,
   cloud: <IconCloud size={16} />,
   business: <IconBusiness size={16} />,
+  store: <IconStore size={16} />,
+  erp: <IconErp size={16} />,
+  chip: <IconChip size={16} />,
 };
 
 const capIcons: Record<string, React.ReactNode> = {
+  store: <IconStore size={20} />,
+  erp: <IconErp size={20} />,
+  chip: <IconChip size={20} />,
   wifi: <IconWifi size={20} />,
-  network: <IconNetwork size={20} />,
-  cctv: <IconCctv size={20} />,
-  code: <IconCode size={20} />,
 };
 
-/* Titik anchor garis koneksi (persen dari viewBox 100x100) */
 const anchors: [number, number][] = [
   [50, 12],
   [82, 27],
@@ -53,7 +59,7 @@ function HeadlineWord({ w, i, accent = false }: { w: string; i: number; accent?:
   return (
     <span className="mask-line">
       <span
-        style={{ "--w-delay": `${250 + i * 65}ms` } as React.CSSProperties}
+        style={{ "--w-delay": `${250 + i * 60}ms` } as React.CSSProperties}
         className={accent ? "text-brick" : undefined}
       >
         {w}
@@ -64,7 +70,7 @@ function HeadlineWord({ w, i, accent = false }: { w: string; i: number; accent?:
 }
 
 export default function Hero() {
-  const eyebrow = useScramble("TEKNOLOGI • JARINGAN • SOLUSI DIGITAL", true);
+  const eyebrow = useScramble("SOLUSI DIGITAL • TEKNOLOGI UMKM • KASIR & ERP", true);
   const [statusIdx, setStatusIdx] = useState(0);
   const [featuredItem, setFeaturedItem] = useState<PublicShowcaseItem | null>(null);
 
@@ -88,7 +94,7 @@ export default function Hero() {
   }, []);
 
   const status = STATUS_MSGS[statusIdx];
-  const h1 = "Teknologi yang Menghubungkan Bisnis dan Kehidupan Digital Anda.".split(" ");
+  const h1 = "Teknologi Praktis untuk Warung dan Bisnis yang Ingin Tumbuh Lebih Rapi.".split(" ");
 
   return (
     <section id="beranda" className="bg-ledger relative overflow-hidden pt-28 sm:pt-32" aria-labelledby="hero-title">
@@ -97,7 +103,7 @@ export default function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid items-center gap-12 pb-16 sm:pb-20 lg:grid-cols-12 lg:gap-8">
-          {/* kiri: pesan */}
+          {/* KIRI: Narasi Utama & CTA Komersial */}
           <div className="lg:col-span-6 xl:col-span-6">
             <Reveal>
               <div className="flex flex-wrap items-center gap-3">
@@ -107,7 +113,7 @@ export default function Hero() {
                 </span>
                 {featuredItem && (
                   <a
-                    href={featuredItem.cta_url || "#erp"}
+                    href={featuredItem.cta_url || "#buku-warung"}
                     className="inline-flex items-center gap-1.5 rounded-full border border-marigold/40 bg-marigold/15 px-3 py-1 font-mono text-[10px] font-bold text-ink transition hover:bg-marigold/25"
                   >
                     <span className="rounded-full bg-marigold px-1.5 py-0.5 text-[8px] font-extrabold uppercase text-ink">
@@ -122,13 +128,13 @@ export default function Hero() {
 
             <h1
               id="hero-title"
-              className="font-display mt-6 text-[2.65rem] font-extrabold leading-[1.01] tracking-tight text-ink sm:text-6xl xl:text-[4.15rem]"
+              className="font-display mt-6 text-[2.5rem] font-extrabold leading-[1.03] tracking-tight text-ink sm:text-5xl xl:text-[3.9rem]"
             >
               {h1.map((w, i) =>
-                w === "Menghubungkan" ? (
+                w === "Praktis" ? (
                   <span key={i} className="relative inline-block">
                     <span className="mask-line">
-                      <span style={{ "--w-delay": `${250 + i * 65}ms` } as React.CSSProperties}>{w}{"\u00A0"}</span>
+                      <span style={{ "--w-delay": `${250 + i * 60}ms` } as React.CSSProperties}>{w}{"\u00A0"}</span>
                     </span>
                     <svg
                       className="stroke-draw absolute -bottom-1.5 left-0 w-full"
@@ -147,45 +153,54 @@ export default function Hero() {
             </h1>
 
             <Reveal delay={420}>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-ink/60 sm:text-lg">
-                SKMNetwork menghadirkan <strong className="font-bold text-ink">internet, jaringan, CCTV, dan solusi digital</strong>{" "}
-                — termasuk SKMNetwork ERP — untuk membantu UMKM dan bisnis tetap terhubung serta lebih mudah mengelola usahanya.
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-ink/70 sm:text-lg">
+                SKMNetwork menghadirkan <strong className="font-bold text-ink">Buku Warung</strong> — aplikasi kasir & pembukuan UMKM seharga <strong>Rp50.000 sekali beli</strong> tanpa langganan, serta ekosistem software bisnis, ERP, dan konektivitas terpadu.
               </p>
             </Reveal>
 
+            {/* CTA Buttons */}
             <Reveal delay={520}>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <a
-                  href="#solusi"
-                  className="btn-arrow inline-flex items-center gap-2.5 rounded-xl bg-ink px-7 py-4 text-base font-extrabold text-paper transition hover:-translate-y-0.5 hover:bg-ink-2"
+                  href={WHATSAPP_URL}
+                  className="btn-arrow inline-flex items-center gap-2.5 rounded-2xl bg-marigold px-7 py-4 text-base font-extrabold text-ink transition hover:-translate-y-0.5 hover:bg-marigold-2 shadow-[3px_3px_0_0_var(--color-ink)]"
                 >
-                  Jelajahi Solusi
+                  Beli Buku Warung — Rp50.000
                   <IconArrowRight size={17} />
                 </a>
                 <a
-                  href="#kontak"
-                  className="inline-flex items-center gap-2.5 rounded-xl border-2 border-ink/20 px-7 py-[14px] text-base font-bold text-ink transition hover:border-ink/50 hover:bg-card"
+                  href="#buku-warung"
+                  className="inline-flex items-center gap-2.5 rounded-2xl border-2 border-ink/20 px-6 py-[14px] text-base font-bold text-ink transition hover:border-ink/50 hover:bg-card"
                 >
-                  Hubungi SKMNetwork
+                  Pelajari Fitur
                 </a>
               </div>
             </Reveal>
 
+            {/* Quick Badges */}
             <Reveal delay={620}>
-              <p className="mt-7 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-ink/40">
-                Internet · Network · CCTV · Software · ERP · Support
-              </p>
+              <div className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] font-bold text-ink/60">
+                <span className="flex items-center gap-1 text-leaf">
+                  <IconCheck size={14} /> Sekali Beli Rp50rb
+                </span>
+                <span className="flex items-center gap-1 text-leaf">
+                  <IconCheck size={14} /> 100% Offline Selamanya
+                </span>
+                <span className="flex items-center gap-1 text-leaf">
+                  <IconCheck size={14} /> Printer Bluetooth Ready
+                </span>
+              </div>
             </Reveal>
           </div>
 
-          {/* kanan: ekosistem jaringan */}
+          {/* KANAN: Hub Interaktif Ekosistem SKMNetwork */}
           <div className="lg:col-span-6 xl:col-span-6">
             <div className="relative mx-auto aspect-[10/9] w-full max-w-[560px]">
               {/* radar rings */}
               <div className="absolute left-1/2 top-1/2 h-[74%] w-[74%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-ink/12 orbit-slow" aria-hidden />
               <div className="absolute left-1/2 top-1/2 h-[52%] w-[52%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-ink/10" aria-hidden />
 
-              {/* garis koneksi */}
+              {/* garis koneksi SVG */}
               <svg
                 className="absolute inset-0 h-full w-full"
                 viewBox="0 0 100 100"
@@ -208,12 +223,11 @@ export default function Hero() {
                     style={{ animationDelay: `${i * 0.25}s` }}
                   />
                 ))}
-                {/* paket data yang mengalir antar node */}
                 {anchors.slice(0, 3).map(([x, y], i) => (
                   <circle
                     key={`pkt-${i}`}
-                    r="1.1"
-                    fill={i === 1 ? "var(--color-leaf)" : "var(--color-marigold)"}
+                    r="1.2"
+                    fill={i === 0 ? "var(--color-marigold)" : i === 1 ? "var(--color-leaf)" : "var(--color-sky-2)"}
                     className="motion-reduce:hidden"
                   >
                     <animateMotion dur={`${2.6 + i * 0.8}s`} begin={`${i * 0.9}s`} repeatCount="indefinite" path={`M50 50 L${x} ${y}`} />
@@ -221,7 +235,7 @@ export default function Hero() {
                 ))}
               </svg>
 
-              {/* hub pusat */}
+              {/* Hub Pusat SKMNetwork */}
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                 <div className="relative flex flex-col items-center rounded-2xl border-2 border-ink/15 bg-card px-6 py-5 shadow-[0_20px_45px_-20px_rgba(11,31,51,0.45)]">
                   <span className="absolute -right-1.5 -top-1.5 inline-flex h-3.5 w-3.5 rounded-full bg-leaf text-leaf ping-dot" />
@@ -242,7 +256,7 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* node satelit */}
+              {/* Node Satelit */}
               {heroNodes.map((n, i) => (
                 <div
                   key={n.label}
@@ -260,24 +274,13 @@ export default function Hero() {
                   </div>
                 </div>
               ))}
-
-              {/* tag protokol */}
-              <span className="floaty absolute left-[24%] top-[24%] hidden rounded-md border border-ink/10 bg-paper px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/45 md:block" style={{ "--fl-delay": "1.2s" } as React.CSSProperties}>
-                uplink
-              </span>
-              <span className="floaty absolute right-[12%] top-[46%] hidden rounded-md border border-ink/10 bg-paper px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/45 md:block" style={{ "--fl-delay": "2.1s" } as React.CSSProperties}>
-                rtsp
-              </span>
-              <span className="floaty absolute bottom-[22%] left-[30%] hidden rounded-md border border-ink/10 bg-paper px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/45 md:block" style={{ "--fl-delay": "3s" } as React.CSSProperties}>
-                api
-              </span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* trust strip: kapabilitas */}
-      <div className="relative border-t-2 border-ink/10 bg-ink" aria-label="Kapabilitas SKMNetwork">
+      {/* Trust Strip Kapabilitas 4 Pilar */}
+      <div className="relative border-t-2 border-ink/10 bg-ink" aria-label="Kapabilitas Ekosistem SKMNetwork">
         <div className="mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {capabilities.map((c, i) => (
             <Reveal
@@ -292,7 +295,7 @@ export default function Hero() {
               </span>
               <span>
                 <span className="font-display block text-[15px] font-bold text-paper">{c.title}</span>
-                <span className="mt-1 block text-[13px] leading-snug text-paper/55">{c.desc}</span>
+                <span className="mt-1 block text-[13px] leading-snug text-paper/60">{c.desc}</span>
               </span>
             </Reveal>
           ))}

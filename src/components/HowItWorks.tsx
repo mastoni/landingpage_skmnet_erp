@@ -1,48 +1,81 @@
-import { steps } from "../data";
-import { IconTarget, IconLayers, IconHeadset, IconArrowRight } from "../icons";
+import { steps, WHATSAPP_URL } from "../data";
+import { IconCart, IconMoney, IconChip, IconStore, IconArrowRight } from "../icons";
 import { Reveal, SectionHead } from "./Ui";
 
 const stepIcons: Record<string, React.ReactNode> = {
-  target: <IconTarget size={22} />,
-  layers: <IconLayers size={22} />,
-  headset: <IconHeadset size={22} />,
+  cart: <IconCart size={24} />,
+  money: <IconMoney size={24} />,
+  chip: <IconChip size={24} />,
+  store: <IconStore size={24} />,
 };
 
 export default function HowItWorks() {
   return (
-    <section id="cara-kerja" className="relative border-b-2 border-ink/10 py-20 sm:py-28" aria-labelledby="cara-kerja-title">
+    <section id="cara-beli" className="relative border-b-2 border-ink/10 py-20 sm:py-28" aria-labelledby="cara-beli-title">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHead
-          eyebrow="Cara kerja"
-          title={<span id="cara-kerja-title">Mulai dari Kebutuhan, <span className="text-leaf">Kami Bangun Solusinya.</span></span>}
-          copy="Tidak ada solusi instan yang dipaksakan. Setiap proyek berjalan lewat tiga tahap yang jelas dan terukur."
+          eyebrow="Cara Pembelian & Aktivasi"
+          title={
+            <span id="cara-beli-title">
+              Mulai Pakai Buku Warung dalam <span className="text-leaf">4 Langkah Mudah.</span>
+            </span>
+          }
+          copy="Proses pemesanan cepat dan transparan melalui Admin resmi SKMNetwork. Tanpa registrasi yang rumit, langsung aktif di HP Anda."
         />
 
-        <div className="relative mt-12">
-          {/* garis penghubung */}
-          <div className="absolute left-8 top-8 hidden h-0.5 w-[calc(100%-6rem)] border-t-2 border-dashed border-ink/20 lg:block" aria-hidden />
-
-          <div className="grid gap-8 md:grid-cols-3">
+        <div className="relative mt-14">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((s, i) => (
-              <Reveal key={s.no} delay={i * 130}>
-                <article className="relative">
-                  <div className="flex items-center gap-4">
-                    <span className="font-display relative z-10 flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-ink bg-paper text-ink shadow-[4px_4px_0_0_var(--color-marigold)]">
-                      {stepIcons[s.icon]}
-                    </span>
-                    <span className="font-display text-5xl font-extrabold text-ink/10">{s.no}</span>
+              <Reveal key={s.no} delay={i * 100}>
+                <article className="relative flex h-full flex-col justify-between rounded-2xl border-2 border-ink/10 bg-card p-6 shadow-xs">
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-ink bg-paper text-ink shadow-[3px_3px_0_0_var(--color-marigold)]">
+                        {stepIcons[s.icon]}
+                      </span>
+                      <span className="font-display text-4xl font-extrabold text-ink/15">
+                        {s.no}
+                      </span>
+                    </div>
+                    <h3 className="font-display mt-6 text-lg font-bold text-ink sm:text-xl">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-ink/65">
+                      {s.desc}
+                    </p>
                   </div>
-                  <h3 className="font-display mt-5 text-xl font-bold text-ink sm:text-2xl">{s.title}</h3>
-                  <p className="mt-2.5 max-w-xs text-[15px] leading-relaxed text-ink/60">{s.desc}</p>
-                  {i < 2 && (
-                    <span className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest text-ink/35">
-                      lanjut ke tahap {i + 2} <IconArrowRight size={13} />
-                    </span>
+
+                  {i < 3 && (
+                    <div className="mt-6 pt-3 border-t border-ink/8 flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-wider text-ink/40">
+                      <span>Lanjut Tahap {i + 2}</span>
+                      <IconArrowRight size={11} />
+                    </div>
                   )}
                 </article>
               </Reveal>
             ))}
           </div>
+
+          {/* CTA Box */}
+          <Reveal delay={400}>
+            <div className="mt-12 rounded-3xl border-3 border-ink bg-marigold/15 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div>
+                <p className="font-display text-xl sm:text-2xl font-extrabold text-ink">
+                  Siap Memulai? Dapatkan Lisensi Buku Warung Hari Ini!
+                </p>
+                <p className="mt-1 text-sm text-ink/75">
+                  Cukup bayar <strong>Rp50.000 sekali</strong>, dapatkan APK installer resmi dan kode lisensi aktif.
+                </p>
+              </div>
+              <a
+                href={WHATSAPP_URL}
+                className="btn-arrow shrink-0 inline-flex items-center gap-2 rounded-2xl bg-marigold px-6 py-3.5 font-display text-sm font-extrabold text-ink shadow-[3px_3px_0_0_var(--color-ink)] transition-all hover:bg-marigold-2 hover:-translate-y-0.5"
+              >
+                <span>Pesan Lisensi via WhatsApp</span>
+                <IconArrowRight size={16} />
+              </a>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

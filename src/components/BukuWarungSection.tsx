@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { bukuWarungInfo, WHATSAPP_URL } from "../data";
+import { bukuWarungInfo, PUBLIC_ORDER_URL } from "../data";
 import {
   IconCart,
   IconBarcode,
@@ -130,7 +130,7 @@ export default function BukuWarungSection() {
                 {/* CTAs */}
                 <div className="mt-6 flex flex-col gap-3">
                   <a
-                    href={WHATSAPP_URL}
+                    href={PUBLIC_ORDER_URL}
                     className="btn-arrow flex w-full items-center justify-center gap-2 rounded-2xl bg-marigold px-6 py-4 text-center font-display text-base font-extrabold text-ink transition-all hover:bg-marigold-2 hover:-translate-y-0.5 shadow-[3px_3px_0_0_var(--color-ink)]"
                   >
                     <span>Beli Buku Warung — Rp50.000</span>

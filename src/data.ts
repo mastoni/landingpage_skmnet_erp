@@ -8,6 +8,7 @@ export const SITE = "https://www.skmnetwork.com";
 export const ERP_URL = "https://erp.skmnetwork.com";
 export const CONTACT_URL = "#kontak";
 export const BUKU_WARUNG_URL = "#buku-warung";
+export const PUBLIC_ORDER_URL = "https://license.skmnetwork.com/beli/buku-warung";
 export const FITUR_URL = "#fitur";
 export const CARA_BELI_URL = "#cara-beli";
 export const FAQ_URL = "#faq";
@@ -208,7 +209,7 @@ export const solutions = [
     desc: "Aplikasi kasir & pembukuan Android praktis untuk warung dan toko. Rp50.000 sekali beli, 100% offline-ready.",
     points: ["Rp50.000 Sekali Beli", "Aktivasi online 1x → Offline selamanya", "Cetak struk bluetooth & scan barcode"],
     cta: "Beli Buku Warung",
-    href: WHATSAPP_URL,
+    href: PUBLIC_ORDER_URL,
     isExternal: false,
     highlight: true,
   },

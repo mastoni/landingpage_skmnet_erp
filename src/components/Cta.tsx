@@ -1,4 +1,4 @@
-import { WHATSAPP_URL, ERP_URL } from "../data";
+import { WHATSAPP_URL, ERP_URL, PUBLIC_ORDER_URL } from "../data";
 import { IconArrowRight, IconErp, IconCheck } from "../icons";
 import { Reveal, Eyebrow } from "./Ui";
 
@@ -42,7 +42,7 @@ export default function Cta() {
         <Reveal delay={250}>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
-              href={WHATSAPP_URL}
+              href={PUBLIC_ORDER_URL}
               className="btn-arrow inline-flex items-center gap-2.5 rounded-2xl bg-marigold px-8 py-4 text-base font-extrabold text-ink transition hover:-translate-y-0.5 hover:bg-marigold-2 shadow-[3px_3px_0_0_var(--color-paper)]"
             >
               Beli Buku Warung — Rp50.000

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { LogoMark, Wordmark, IconArrowRight } from "../icons";
-import { navLinks, ERP_URL, WHATSAPP_URL } from "../data";
+import { navLinks, ERP_URL, WHATSAPP_URL, PUBLIC_ORDER_URL } from "../data";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -67,7 +67,7 @@ export default function Nav() {
 
             {/* 2. Beli Buku Warung Primary CTA */}
             <a
-              href={WHATSAPP_URL}
+              href={PUBLIC_ORDER_URL}
               className="btn-arrow hidden items-center gap-1.5 rounded-xl bg-marigold px-4 py-2 text-xs font-extrabold text-ink transition hover:bg-marigold-2 shadow-xs sm:inline-flex"
             >
               <span>Beli Buku Warung (Rp50rb)</span>
@@ -108,7 +108,7 @@ export default function Nav() {
               ))}
               <div className="mt-3 flex flex-col gap-2 border-t border-ink/10 pt-3">
                 <a
-                  href={WHATSAPP_URL}
+                  href={PUBLIC_ORDER_URL}
                   onClick={() => setOpen(false)}
                   className="flex items-center justify-center gap-2 rounded-xl bg-marigold px-4 py-3 text-center text-sm font-extrabold text-ink shadow-xs min-h-[44px]"
                 >

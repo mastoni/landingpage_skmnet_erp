@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useScramble } from "../hooks";
-import { capabilities, heroNodes, WHATSAPP_URL } from "../data";
+import { capabilities, heroNodes, WHATSAPP_URL, PUBLIC_ORDER_URL } from "../data";
 import { fetchPublicShowcase } from "../lib/api";
 import type { PublicShowcaseItem } from "../types";
 import {
@@ -162,7 +162,7 @@ export default function Hero() {
             <Reveal delay={520}>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <a
-                  href={WHATSAPP_URL}
+                  href={PUBLIC_ORDER_URL}
                   className="btn-arrow inline-flex items-center gap-2.5 rounded-2xl bg-marigold px-7 py-4 text-base font-extrabold text-ink transition hover:-translate-y-0.5 hover:bg-marigold-2 shadow-[3px_3px_0_0_var(--color-ink)]"
                 >
                   Beli Buku Warung — Rp50.000
